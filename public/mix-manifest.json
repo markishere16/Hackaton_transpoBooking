@@ -1,13 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-<<<<<<< HEAD
     "/js/mainLayout.js": "/js/mainLayout.js",
+    "/js/vehicleList.js": "/js/vehicleList.js",
     "/css/app.css": "/css/app.css"
-=======
-    "/js/home.js": "/js/home.js",
-    "/css/app.css": "/css/app.css",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/js/mainLayout.js": "/js/mainLayout.js",
-    "/js/vehicleList.js": "/js/vehicleList.js"
->>>>>>> 894978800cb49adc9f3b9a839f19d08e5a610643
 }
