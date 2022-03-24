@@ -2405,6 +2405,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         },
         name: "bookingPreview"
       }, {
+        path: "/passeng/:id",
+        component: function component() {
+          return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/bookingPreview/bookingPreview */ "./resources/js/components/pages/bookingPreview/bookingPreview.vue"));
+        },
+        name: "bookingPreview"
+      }, {
         path: "manage-user",
         component: function component() {
           return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/manage-user/manage-userComponent */ "./resources/js/components/pages/manage-user/manage-userComponent.vue"));

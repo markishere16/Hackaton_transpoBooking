@@ -2019,7 +2019,7 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm.get_CurrentUser.user_type == "Driver"
+      _vm.get_CurrentUser.user_type == "driver"
         ? _c("driverHome", { attrs: { get_CurrentUser: _vm.get_CurrentUser } })
         : _vm._e(),
       _vm._v(" "),
