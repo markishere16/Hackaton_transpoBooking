@@ -45,6 +45,12 @@ const router = new Router({
                         name: "bookingPreview"
                     },
                     {
+                        path: "/passenger-bookingPreview/:id",
+                        component: () =>
+                            import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/bookingPreview/passenger-bookingPreview"),
+                        name: "passenger-bookingPreview"
+                    },
+                    {
                         path: "manage-user",
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/manage-user/manage-userComponent"),

@@ -24,34 +24,36 @@
             </v-col>
 
             <v-col cols="12" md="7">
+
+                
                 <v-row>
                     <v-col cols="4">
-                        Name:
+                       Driver Name:
                     </v-col>
                     <v-col cols="8">
-                        Juan Tamad
+                      {Driver_name}
                     </v-col>
 
                     <v-col cols="4">
-                        Pick Up Location:
+                        Current Location: 
                     </v-col>
                     <v-col cols="8">
-                        P3, Alicia, Isa
+                       {current_location}
                     </v-col>
 
                     <v-col cols="4">
                         Destination:
                     </v-col>
                     <v-col cols="8">
-                        Zone 3, Manila, Ph
+                        {destination}
                     </v-col>
                 </v-row>
 
 
                 <div>
                     <v-divider class="mb-2"></v-divider>
-                    <v-textarea outlined name="input-7-4" label="Description"
-                        value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through.">
+                    <v-textarea outlined name="input-7-4" v-model="description" label="Description"
+                        value="">
                     </v-textarea>
                 </div>
 
@@ -74,10 +76,12 @@
 
 <script>
 export default {
-    props: ['driver_id'],
+    // props: ['driver_id'],
     data() {
         return {
             isBooked: false,
+            description: '',
+            book_data: {},
 
         }
     },
@@ -85,7 +89,7 @@ export default {
        BookNowHandler() {
                 this.book_data.from_location = '16.9339192,121.7712564';
                 this.book_data.to_location = '16.9339192,121.7712564';
-                this.book_data.driver_id = this.driver_id;
+                this.book_data.driver_id = this.$route.params.id;
                 this.book_data.description = this.description;
                 
                 axios.post('/api/booking/add',  this.book_data)

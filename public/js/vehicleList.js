@@ -114,11 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
-=======
->>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -151,9 +148,9 @@ __webpack_require__.r(__webpack_exports__);
         _this2.available_drivers = res.data;
       });
     },
-    BookNowHandler: function BookNowHandler(driver_id) {
+    BookNowPageHandler: function BookNowPageHandler(driver_id) {
       this.$router.push({
-        name: 'pasenger-bookingPreview',
+        name: 'passenger-bookingPreview',
         params: {
           id: driver_id
         }
@@ -601,16 +598,6 @@ var render = function () {
   return _c(
     "div",
     [
-<<<<<<< HEAD
-      _vm._v(
-        "\n\n" +
-          _vm._s(_vm.from_lat) +
-          "\n\n" +
-          _vm._s(_vm.from_long) +
-          "\n\n\n\n\n        "
-      ),
-=======
->>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
       _c(
         "v-row",
         { attrs: { justify: "center" } },
@@ -833,13 +820,8 @@ var render = function () {
                                           attrs: { color: "primary" },
                                           on: {
                                             click: function ($event) {
-<<<<<<< HEAD
                                               return _vm.BookNowPageHandler(
                                                 driver
-=======
-                                              return _vm.BookNowHandler(
-                                                driver.id
->>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
                                               )
                                             },
                                           },

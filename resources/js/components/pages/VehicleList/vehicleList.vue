@@ -145,8 +145,8 @@ import axios from 'axios'
                         this.available_drivers = res.data
                     })
             },
-            BookNowHandler(driver_id) {
-            this.$router.push({name: 'pasenger-bookingPreview', params:{id: driver_id}})
+            BookNowPageHandler(driver_id) {
+            this.$router.push({name: 'passenger-bookingPreview', params:{id: driver_id}})
             },
         },
         mounted() {
