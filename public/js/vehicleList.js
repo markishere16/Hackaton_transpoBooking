@@ -114,8 +114,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -212,7 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      logo: '../../images/transpologo.png',
+      logo: '../../images/transpologo2.jpg',
       form: {
         username: '',
         password: ''
@@ -322,6 +325,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -345,6 +359,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     updateProfile: function updateProfile() {
       axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {});
+    },
+    UploadProfile: function UploadProfile() {
+      this.$refs.fileInput.click();
+    },
+    onFileChange: function onFileChange(element) {
+      this.imageFile = element.target.files[0];
+      this.get_CurrentUser.profile = URL.createObjectURL(this.imageFile);
     }
   })
   /*  mounted(){
@@ -580,6 +601,7 @@ var render = function () {
   return _c(
     "div",
     [
+<<<<<<< HEAD
       _vm._v(
         "\n\n" +
           _vm._s(_vm.from_lat) +
@@ -587,6 +609,8 @@ var render = function () {
           _vm._s(_vm.from_long) +
           "\n\n\n\n\n        "
       ),
+=======
+>>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
       _c(
         "v-row",
         { attrs: { justify: "center" } },
@@ -809,8 +833,13 @@ var render = function () {
                                           attrs: { color: "primary" },
                                           on: {
                                             click: function ($event) {
+<<<<<<< HEAD
                                               return _vm.BookNowPageHandler(
                                                 driver
+=======
+                                              return _vm.BookNowHandler(
+                                                driver.id
+>>>>>>> 9f2669299123d34be5da0d327aecee47255aa9de
                                               )
                                             },
                                           },
@@ -894,6 +923,7 @@ var render = function () {
                         [
                           _c(
                             "div",
+                            { staticClass: "d-flex justify-center" },
                             [
                               _c("v-img", {
                                 attrs: {
@@ -1028,6 +1058,8 @@ var render = function () {
           attrs: { app: "", flat: "" },
         },
         [
+          _c("h3", [_vm._v("Profile")]),
+          _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
           _c(
@@ -1065,8 +1097,8 @@ var render = function () {
                     [
                       _c("v-img", {
                         attrs: {
-                          src: "https://cdn.vuetifyjs.com/images/john.jpg",
-                          alt: "John",
+                          src: _vm.get_CurrentUser.profile,
+                          alt: "Profile",
                         },
                       }),
                     ],
@@ -1074,6 +1106,21 @@ var render = function () {
                   ),
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticStyle: { "text-decoration": "none" },
+                  attrs: { href: "" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.UploadProfile()
+                    },
+                  },
+                },
+                [_vm._v("Update Picture")]
               ),
             ]
           ),
@@ -1210,6 +1257,13 @@ var render = function () {
         ],
         1
       ),
+      _vm._v(" "),
+      _c("input", {
+        ref: "fileInput",
+        staticClass: "d-none",
+        attrs: { type: "file", id: "image-input", accept: "image/jpeg" },
+        on: { change: _vm.onFileChange },
+      }),
     ],
     1
   )

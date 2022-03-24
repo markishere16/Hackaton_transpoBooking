@@ -5,7 +5,7 @@
                 <v-container fluid fill-height>
                    <v-row align="center" justify="center">
                         <v-col class="text-center" cols="12" md="7">
-                           <div>
+                           <div class="d-flex justify-center">
                                <v-img width="100" alt="logo" :src="logo"></v-img>
                            </div>
                        </v-col>
@@ -29,7 +29,7 @@
 export default {
     data(){
         return{
-            logo: '../../images/transpologo.png',
+            logo: '../../images/transpologo2.jpg',
             form:{
                 username: '',
                 password:''

@@ -43,12 +43,16 @@ Route::prefix('/users')->group(function () {
 
 //booking
 Route::prefix('/booking')->group(function () {
-    Route::get('/all', [BookingController::class, 'all']);
+    Route::get('/all', [BookingController::class, 'Allbooking']);
     Route::get('/cancel/{id}', [BookingController::class, 'cancelBooking']);
     Route::post('/add', [BookingController::class, 'addBooking']);
     Route::delete('/delete/{id}', [BookingController::class, 'deleteUser']);
     Route::get('/my-history', [BookingController::class, 'userBookingHistory']);
 
+    Route::get('/details/{id}', [BookingController::class, 'BookingDetails']);
+    Route::put('/accept_booking/{id}', [BookingController::class, 'AcceptBooking']);
+    Route::put('/cancel_booking/{id}', [BookingController::class, 'CancelAcceptedBooking']);
+    
 });
 
 

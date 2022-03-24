@@ -62,6 +62,208 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      details: null
+    };
+  },
+  methods: {
+    getBookingDetails: function getBookingDetails() {
+      var _this = this;
+
+      axios.get('/api/booking/details/' + this.$route.params.id).then(function (res) {
+        _this.details = res.data;
+      });
+    },
+    acceptBooking: function acceptBooking() {
+      var _this2 = this;
+
+      axios.put('/api/booking/accept_booking/' + this.$route.params.id).then(function (res) {
+        _this2.$store.dispatch('setStatus', 2);
+
+        _this2.$router.push({
+          name: 'Home'
+        });
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getBookingDetails();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      myhistory: []
+    };
+  },
+  methods: {
+    fetchmyhistory: function fetchmyhistory() {
+      var _this = this;
+
+      axios.get('/api/booking/my-history').then(function (res) {
+        _this.myhistory = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchmyhistory();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/driverHome.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/driverHome.vue?vue&type=script&lang=js& ***!
@@ -72,6 +274,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -146,7 +420,8 @@ __webpack_require__.r(__webpack_exports__);
         id: 2,
         name: 'Pedro Penduko',
         address: 'Zone 3, Echague, Isa.'
-      }]
+      }],
+      bookings: []
     };
   },
   methods: {
@@ -159,8 +434,44 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateProfile: function updateProfile() {
-      axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {});
+      var _this = this;
+
+      axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {
+        _this.fetchBooking();
+      });
+    },
+    fetchBooking: function fetchBooking() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                axios.get('/api/booking/all').then(function (res) {
+                  _this2.bookings = res.data;
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    CancelBooking: function CancelBooking() {
+      var _this3 = this;
+
+      axios.put('/api/booking/cancel_booking/' + this.bookings.id).then(function (res) {
+        _this3.$store.dispatch('setStatus', 1);
+
+        _this3.fetchBooking();
+      });
     }
+  },
+  mounted: function mounted() {
+    this.fetchBooking();
   }
 });
 
@@ -997,15 +1308,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _bookingPreview_vue_vue_type_template_id_8d43e9ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bookingPreview.vue?vue&type=template&id=8d43e9ee& */ "./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=template&id=8d43e9ee&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _bookingPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookingPreview.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _bookingPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _bookingPreview_vue_vue_type_template_id_8d43e9ee___WEBPACK_IMPORTED_MODULE_0__.render,
   _bookingPreview_vue_vue_type_template_id_8d43e9ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1018,6 +1331,44 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/pages/bookingPreview/bookingPreview.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/history/history.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/pages/history/history.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./history.vue?vue&type=template&id=1118c4da& */ "./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da&");
+/* harmony import */ var _history_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./history.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/history/history.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _history_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__.render,
+  _history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/history/history.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -1307,6 +1658,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_bookingPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./bookingPreview.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_bookingPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/history/history.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/pages/history/history.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_history_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./history.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_history_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/home/driverHome.vue?vue&type=script&lang=js&":
 /*!************************************************************************************!*\
   !*** ./resources/js/components/pages/home/driverHome.vue?vue&type=script&lang=js& ***!
@@ -1473,6 +1854,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_bookingPreview_vue_vue_type_template_id_8d43e9ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_bookingPreview_vue_vue_type_template_id_8d43e9ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./bookingPreview.vue?vue&type=template&id=8d43e9ee& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/bookingPreview/bookingPreview.vue?vue&type=template&id=8d43e9ee&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_history_vue_vue_type_template_id_1118c4da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./history.vue?vue&type=template&id=1118c4da& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da&");
 
 
 /***/ }),
@@ -1729,7 +2126,9 @@ var render = function () {
                   _vm._v(" "),
                   _c("v-col", { attrs: { cols: "8" } }, [
                     _vm._v(
-                      "\n                        Juan Tamad\n                    "
+                      "\n                        " +
+                        _vm._s(_vm.details.name) +
+                        "\n                    "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1741,7 +2140,9 @@ var render = function () {
                   _vm._v(" "),
                   _c("v-col", { attrs: { cols: "8" } }, [
                     _vm._v(
-                      "\n                        P3, Alicia, Isa\n                    "
+                      "\n                        " +
+                        _vm._s(_vm.details.from) +
+                        "\n                    "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1753,7 +2154,9 @@ var render = function () {
                   _vm._v(" "),
                   _c("v-col", { attrs: { cols: "8" } }, [
                     _vm._v(
-                      "\n                        Zone 3, Manila, Ph\n                    "
+                      "\n                        " +
+                        _vm._s(_vm.details.to) +
+                        "\n                    "
                     ),
                   ]),
                 ],
@@ -1769,7 +2172,9 @@ var render = function () {
                     _vm._v("Description: "),
                     _c("br"),
                     _vm._v(
-                      "\n                        Dito lang po sa tapat ng langit at lupa at may puno sa tabi ko na may dahon na green.\n                    "
+                      "\n                        " +
+                        _vm._s(_vm.details.description) +
+                        "\n                    "
                     ),
                   ]),
                 ],
@@ -1779,17 +2184,167 @@ var render = function () {
             1
           ),
           _vm._v(" "),
+          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+            _c(
+              "div",
+              { staticClass: "d-flex" },
+              [
+                _c(
+                  "v-btn",
+                  {
+                    staticClass: "pt-6 pb-6",
+                    staticStyle: { width: "80%" },
+                    attrs: { rounded: "", color: "primary" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.acceptBooking()
+                      },
+                    },
+                  },
+                  [_vm._v("Accept Booking")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    staticClass: "pt-6 pb-6 ml-2",
+                    attrs: { outlined: "", rounded: "", color: "primary" },
+                  },
+                  [_c("v-icon", [_vm._v("mdi-message")])],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/history/history.vue?vue&type=template&id=1118c4da& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-row",
+        { attrs: { justify: "center" } },
+        [
+          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+            _c(
+              "div",
+              { staticClass: "d-flex" },
+              [
+                _c("div", { staticClass: "font-weight-bold" }, [
+                  _c("h3", [_vm._v("History")]),
+                ]),
+                _vm._v(" "),
+                _c("v-spacer"),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
           _c(
             "v-col",
             { attrs: { cols: "12", md: "7" } },
             [
               _c(
-                "v-btn",
-                {
-                  staticClass: "pt-6 pb-6",
-                  attrs: { rounded: "", color: "primary", block: "" },
-                },
-                [_vm._v("Accept Booking")]
+                "v-row",
+                _vm._l(_vm.myhistory, function (item, i) {
+                  return _c(
+                    "v-col",
+                    {
+                      key: i,
+                      staticClass: "mb-0 pb-0",
+                      attrs: { cols: "12", md: "6" },
+                    },
+                    [
+                      _c(
+                        "v-card",
+                        {
+                          staticClass: "pt-5 pb-5 pl-2 pr-2",
+                          attrs: { link: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.openBooking(item.id)
+                            },
+                          },
+                        },
+                        [
+                          _c(
+                            "v-list",
+                            { staticClass: "ma-0 pa-0" },
+                            [
+                              _c(
+                                "v-list-item",
+                                { staticClass: "ma-0 pa-0" },
+                                [
+                                  _c(
+                                    "v-list-item-avatar",
+                                    { attrs: { size: "50" } },
+                                    [
+                                      _c("v-img", {
+                                        attrs: {
+                                          src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-list-item-content", [
+                                    _c(
+                                      "span",
+                                      { staticClass: "font-weight-bold" },
+                                      [_vm._v(_vm._s(item.name))]
+                                    ),
+                                    _vm._v(" "),
+                                    item.booking_status == "cancelled"
+                                      ? _c(
+                                          "small",
+                                          { staticClass: "red--text" },
+                                          [_vm._v("Cancelled")]
+                                        )
+                                      : _vm._e(),
+                                  ]),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                1
               ),
             ],
             1
@@ -1826,113 +2381,119 @@ var render = function () {
   return _c(
     "div",
     [
-      _c(
-        "v-row",
-        { attrs: { justify: "center" } },
-        [
-          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
-            _c(
-              "div",
-              { staticClass: "d-flex" },
-              [
-                _c("div", { staticClass: "font-weight-bold" }, [
-                  _c("h3", [_vm._v("Bookings")]),
-                ]),
-                _vm._v(" "),
-                _c("v-spacer"),
-                _vm._v(" "),
+      _vm.get_CurrentUser.status == 1
+        ? _c(
+            "v-row",
+            { attrs: { justify: "center" } },
+            [
+              _c("v-col", { attrs: { cols: "12", md: "7" } }, [
                 _c(
                   "div",
+                  { staticClass: "d-flex" },
                   [
-                    _c("v-switch", {
-                      staticClass: "mt-0 pt-0",
-                      attrs: {
-                        "hide-details": "",
-                        color: "green",
-                        inset: "",
-                        label: _vm.status ? "Active" : "Inactive",
-                      },
-                      on: {
-                        change: function ($event) {
-                          return _vm.updateProfile()
-                        },
-                      },
-                      model: {
-                        value: _vm.get_CurrentUser.status,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.get_CurrentUser, "status", $$v)
-                        },
-                        expression: "get_CurrentUser.status",
-                      },
-                    }),
+                    _c("div", { staticClass: "font-weight-bold" }, [
+                      _c("h3", [_vm._v("Bookings")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("v-switch", {
+                          staticClass: "mt-0 pt-0",
+                          attrs: {
+                            "hide-details": "",
+                            color: "green",
+                            inset: "",
+                            label: _vm.status ? "Active" : "Inactive",
+                          },
+                          on: {
+                            change: function ($event) {
+                              return _vm.updateProfile()
+                            },
+                          },
+                          model: {
+                            value: _vm.get_CurrentUser.status,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.get_CurrentUser, "status", $$v)
+                            },
+                            expression: "get_CurrentUser.status",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
                   ],
                   1
                 ),
-              ],
-              1
-            ),
-          ]),
-          _vm._v(" "),
-          _c(
-            "v-col",
-            { staticClass: "mb-0 pb-0", attrs: { cols: "12", md: "7" } },
-            [
-              _vm.get_CurrentUser.status
-                ? _c(
-                    "v-row",
-                    _vm._l(_vm.items, function (item, i) {
-                      return _c(
-                        "v-col",
-                        {
-                          key: i,
-                          staticClass: "mb-0 pb-0",
-                          attrs: { cols: "12", md: "6" },
-                        },
-                        [
-                          _c(
-                            "v-card",
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { staticClass: "mb-0 pb-0", attrs: { cols: "12", md: "7" } },
+                [
+                  _vm.get_CurrentUser.status == 1
+                    ? _c(
+                        "v-row",
+                        _vm._l(_vm.bookings, function (item, i) {
+                          return _c(
+                            "v-col",
                             {
-                              staticClass: "pt-5 pb-5 pl-2 pr-2",
-                              attrs: { link: "" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.openBooking(item.id)
-                                },
-                              },
+                              key: i,
+                              staticClass: "mb-0 pb-0",
+                              attrs: { cols: "12", md: "6" },
                             },
                             [
                               _c(
-                                "v-list",
-                                { staticClass: "ma-0 pa-0" },
+                                "v-card",
+                                {
+                                  staticClass: "pt-5 pb-5 pl-2 pr-2",
+                                  attrs: { link: "" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.openBooking(item.id)
+                                    },
+                                  },
+                                },
                                 [
                                   _c(
-                                    "v-list-item",
+                                    "v-list",
                                     { staticClass: "ma-0 pa-0" },
                                     [
                                       _c(
-                                        "v-list-item-avatar",
-                                        { attrs: { size: "50" } },
+                                        "v-list-item",
+                                        { staticClass: "ma-0 pa-0" },
                                         [
-                                          _c("v-img", {
-                                            attrs: {
-                                              src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
-                                            },
-                                          }),
+                                          _c(
+                                            "v-list-item-avatar",
+                                            { attrs: { size: "50" } },
+                                            [
+                                              _c("v-img", {
+                                                attrs: {
+                                                  src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c("v-list-item-content", [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "font-weight-bold",
+                                              },
+                                              [_vm._v(_vm._s(item.name))]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("small", [
+                                              _vm._v(_vm._s(item.to)),
+                                            ]),
+                                          ]),
                                         ],
                                         1
                                       ),
-                                      _vm._v(" "),
-                                      _c("v-list-item-content", [
-                                        _c(
-                                          "span",
-                                          { staticClass: "font-weight-bold" },
-                                          [_vm._v(_vm._s(item.name))]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("small", [
-                                          _vm._v(_vm._s(item.address)),
-                                        ]),
-                                      ]),
                                     ],
                                     1
                                   ),
@@ -1941,55 +2502,219 @@ var render = function () {
                               ),
                             ],
                             1
-                          ),
-                        ],
+                          )
+                        }),
                         1
                       )
-                    }),
-                    1
-                  )
-                : _c("v-row", [
+                    : _vm._e(),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        : _vm.get_CurrentUser.status == 0
+        ? _c(
+            "v-row",
+            { attrs: { justify: "center" } },
+            [
+              _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+                _c(
+                  "div",
+                  { staticClass: "d-flex" },
+                  [
+                    _c("div", { staticClass: "font-weight-bold" }, [
+                      _c("h3", [_vm._v("Bookings")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
                     _c(
                       "div",
                       [
-                        _c(
-                          "v-container",
-                          { attrs: { "fill-height": "" } },
-                          [
-                            _c(
-                              "v-row",
-                              { attrs: { justify: "center" } },
-                              [
-                                _c(
-                                  "v-col",
-                                  {
-                                    staticClass: "text-center",
-                                    attrs: { cols: "12", md: "7" },
-                                  },
-                                  [
-                                    _c("div", [
-                                      _vm._v(
-                                        "\n                                    Your are offline\n                                "
-                                      ),
-                                    ]),
-                                  ]
-                                ),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
+                        _c("v-switch", {
+                          staticClass: "mt-0 pt-0",
+                          attrs: {
+                            "hide-details": "",
+                            color: "green",
+                            inset: "",
+                            label: _vm.status ? "Active" : "Inactive",
+                          },
+                          on: {
+                            change: function ($event) {
+                              return _vm.updateProfile()
+                            },
+                          },
+                          model: {
+                            value: _vm.get_CurrentUser.status,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.get_CurrentUser, "status", $$v)
+                            },
+                            expression: "get_CurrentUser.status",
+                          },
+                        }),
                       ],
                       1
                     ),
+                  ],
+                  1
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { staticClass: "text-center", attrs: { cols: "12", md: "7" } },
+                [
+                  _c("div", [
+                    _vm._v("\n                Your are offline\n            "),
                   ]),
+                ]
+              ),
             ],
             1
-          ),
-        ],
-        1
-      ),
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.get_CurrentUser.status == 2
+        ? _c(
+            "v-row",
+            { attrs: { justify: "center" } },
+            [
+              _c(
+                "v-col",
+                { staticClass: "text-center", attrs: { cols: "12", md: "7" } },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "v-avatar",
+                        { attrs: { size: "150" } },
+                        [
+                          _c("v-img", {
+                            attrs: {
+                              src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", [_c("h3", [_vm._v("Pending Booking")])]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { attrs: { cols: "12", md: "7" } },
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "4" } }, [
+                        _vm._v("\n                    Name:\n                "),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "8" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.bookings.name) +
+                            "\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "4" } }, [
+                        _vm._v(
+                          "\n                Pick Up Location:\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "8" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.bookings.from) +
+                            "\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "4" } }, [
+                        _vm._v(
+                          "\n                Destination:\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "8" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.bookings.to) +
+                            "\n                "
+                        ),
+                      ]),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c("v-divider", { staticClass: "mb-2" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "font-weight-medium" }, [
+                        _vm._v("Description: "),
+                        _c("br"),
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.bookings.description) +
+                            "\n                "
+                        ),
+                      ]),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+                _c(
+                  "div",
+                  { staticClass: "d-flex" },
+                  [
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "pt-6 pb-6",
+                        staticStyle: { width: "80%" },
+                        attrs: { dark: "", rounded: "", color: "red" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.CancelBooking()
+                          },
+                        },
+                      },
+                      [_vm._v("Cancel Booking")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "pt-6 pb-6 ml-2",
+                        attrs: { outlined: "", rounded: "", color: "primary" },
+                      },
+                      [_c("v-icon", [_vm._v("mdi-message")])],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+            ],
+            1
+          )
+        : _vm._e(),
     ],
     1
   )

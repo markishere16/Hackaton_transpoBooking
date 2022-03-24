@@ -66,6 +66,9 @@ const actions = {
         window.localStorage.removeItem('is_authenticated');
         state.evaluation_dialog = true;
     },
+    setStatus({ commit }, id) {
+        state.CurrentUser.status = id;
+    },
 
 };
 const mutations = {

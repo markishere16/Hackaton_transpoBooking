@@ -13,7 +13,6 @@ const router = new Router({
                 path: "",
                 component: () =>
                     import ( /*webpackChunkName: "mainLayout"*/ "./components/layout/mainLayout"),
-                name: "Home",
                 children: [{
                         path: "",
                         component: () =>
@@ -50,6 +49,12 @@ const router = new Router({
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/manage-user/manage-userComponent"),
                         name: "manageUser"
+                    },
+                    {
+                        path: "history",
+                        component: () =>
+                            import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/history/history"),
+                        name: "history"
                     },
                 ]
             }]

@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/home.js": "/js/home.js",
+    "/css/app.css": "/css/app.css",
+    "/js/dashboard.js": "/js/dashboard.js",
     "/js/mainLayout.js": "/js/mainLayout.js",
-    "/js/vehicleList.js": "/js/vehicleList.js",
-    "/css/app.css": "/css/app.css"
+    "/js/vehicleList.js": "/js/vehicleList.js"
 }
