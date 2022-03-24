@@ -148,6 +148,14 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/booking/add', this.book_data).then(function (res) {
         alert(res.data);
       });
+    },
+    BookNowPageHandler: function BookNowPageHandler(driver_id) {
+      this.$router.push({
+        name: 'passenger-bookingPreview',
+        params: {
+          id: driver_id
+        }
+      });
     }
   },
   mounted: function mounted() {

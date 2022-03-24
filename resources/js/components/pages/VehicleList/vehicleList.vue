@@ -148,6 +148,9 @@ import axios from 'axios'
                     alert(res.data);
                 })
             },
+            BookNowPageHandler(driver_id) {
+                this.$router.push({name: 'passenger-bookingPreview', params:{id: driver_id}});
+            },
         },
         mounted() {
             this.getAvailableDriversNearby();
