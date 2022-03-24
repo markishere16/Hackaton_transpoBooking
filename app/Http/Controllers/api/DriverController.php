@@ -18,4 +18,16 @@ class DriverController extends Controller
         return $drivers;
 
     }
+
+    public function Details($id) {
+
+        $drivers = User::select('*')
+                ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'users.id')
+                ->where('status',1)
+                ->get();
+
+        return $drivers;
+
+    }
+    
 }

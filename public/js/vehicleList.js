@@ -109,13 +109,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -148,12 +141,12 @@ __webpack_require__.r(__webpack_exports__);
         _this2.available_drivers = res.data;
       });
     },
-    BookNowPageHandler: function BookNowPageHandler(driver_id) {
-      this.$router.push({
-        name: 'passenger-bookingPreview',
-        params: {
-          id: driver_id
-        }
+    BookNowHandler: function BookNowHandler(driver_id) {
+      this.book_data.from_location = '16.9339192,121.7712564';
+      this.book_data.to_location = '16.9339192,121.7712564';
+      this.book_data.driver_id = driver_id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/booking/add', this.book_data).then(function (res) {
+        alert(res.data);
       });
     }
   },
@@ -820,8 +813,8 @@ var render = function () {
                                           attrs: { color: "primary" },
                                           on: {
                                             click: function ($event) {
-                                              return _vm.BookNowPageHandler(
-                                                driver
+                                              return _vm.BookNowHandler(
+                                                driver.id
                                               )
                                             },
                                           },

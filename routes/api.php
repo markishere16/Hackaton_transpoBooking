@@ -59,6 +59,7 @@ Route::prefix('/booking')->group(function () {
 //drivers function
 Route::prefix('/drivers')->group(function () {
     Route::get('/available', [DriverController::class, 'viewAvailableDrivers']);
+    Route::get('/details', [DriverController::class, 'Details']);
    
 });
 

@@ -78,20 +78,13 @@
                                     </v-list-item-content>
                                     <v-list-item-action>
 
-                                        <v-btn color="primary" @click="BookNowPageHandler(driver)">Book</v-btn>
-                                            
-
+                                        <v-btn color="primary" @click="BookNowHandler(driver.id)">Book</v-btn>
 
                                     </v-list-item-action>
                                 </v-list-item>
                             </v-card>
 
                         </v-list>
-
-
-
-
-
 
                     </v-row>
                 </v-container>
@@ -145,8 +138,15 @@ import axios from 'axios'
                         this.available_drivers = res.data
                     })
             },
-            BookNowPageHandler(driver_id) {
-            this.$router.push({name: 'passenger-bookingPreview', params:{id: driver_id}})
+            BookNowHandler(driver_id) {
+                this.book_data.from_location = '16.9339192,121.7712564';
+                this.book_data.to_location = '16.9339192,121.7712564';
+                this.book_data.driver_id = driver_id;
+                
+                axios.post('/api/booking/add',  this.book_data)
+                .then((res)=>{
+                    alert(res.data);
+                })
             },
         },
         mounted() {

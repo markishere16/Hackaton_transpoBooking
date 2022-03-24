@@ -2541,8 +2541,14 @@ var render = function () {
                       outlined: "",
                       name: "input-7-4",
                       label: "Description",
-                      value:
-                        "The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through.",
+                      value: "",
+                    },
+                    model: {
+                      value: _vm.description,
+                      callback: function ($$v) {
+                        _vm.description = $$v
+                      },
+                      expression: "description",
                     },
                   }),
                 ],
