@@ -14,16 +14,38 @@
 <script>
 import navigation from './navigation'
 import bottomnavigation from './bottom_navigation'
+import {
+        mapGetters,
+        mapActions
+    } from "vuex";
 export default {
     components:{
         navigation,
         bottomnavigation
-    }
+    },
+    data(){
+        return{
+
+        }
+    },
+    computed: mapGetters(["get_CurrentUser"]),    
+    methods:{
+        ...mapActions(['fetchCurrentUser']),
+         getUserDetails(){
+            axios.get('/api/users/detail').then((res) => {
+                this.role = res.data.role;
+                this.UserDetails = res.data;
+            }).catch((error) => {
+            
+            });
+        },
+    },
+
 }
 </script>
 
 <style scoped>
-.container {
+/* .container {
     padding: 0;
-}
+} */
 </style>

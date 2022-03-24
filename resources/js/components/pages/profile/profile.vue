@@ -12,17 +12,17 @@
 
              <v-col class="text-center" cols="12" md="7">
                 <div>
-                    <v-text-field label="First Name" hide-details rounded outlined value="Juan"></v-text-field>
+                    <v-text-field label="First Name" hide-details rounded outlined v-model="get_CurrentUser.first_name"></v-text-field>
                 </div>
             </v-col>
              <v-col class="text-center" cols="12" md="7">
                 <div>
-                    <v-text-field label="Last Name" hide-details rounded outlined value="Dela Cruz"></v-text-field>
+                    <v-text-field label="Last Name" hide-details rounded outlined v-model="get_CurrentUser.last_name"></v-text-field>
                 </div>
             </v-col>
              <v-col class="text-center" cols="12" md="7">
                 <div>
-                    <v-text-field label="Address" hide-details rounded outlined value="Address"></v-text-field>
+                    <v-text-field label="Address" hide-details rounded outlined v-model="get_CurrentUser.address"></v-text-field>
                 </div>
             </v-col>
              <v-col class="text-center" cols="12" md="7">
@@ -41,6 +41,10 @@
     </div>
 </template>
 <script>
+import {
+        mapGetters,
+        mapActions
+    } from "vuex";
 export default {
     data(){
         return{
@@ -51,6 +55,13 @@ export default {
                 'mdi-rickshaw-electric'
             ]
         }
+    },
+    computed: mapGetters(["get_CurrentUser"]),
+    methods:{
+        ...mapActions(['fetchCurrentUser']),
+    },
+    mounted(){
+        this.fetchCurrentUser();
     }
 }
 </script>
