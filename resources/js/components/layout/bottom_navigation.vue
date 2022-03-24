@@ -19,11 +19,11 @@
                 <v-icon large color="white" >mdi-home</v-icon>
             </v-btn>
         
-             <v-btn  value="nearby">
+             <v-btn :to="{name: 'history'}" value="history">
                 <!-- <span>Nearby</span> -->
-                <v-icon>mdi-message</v-icon>
+                <v-icon>mdi-history</v-icon>
             </v-btn>
-             <v-btn :to="{name: 'profile'}"  value="nearby">
+             <v-btn :to="{name: 'profile'}"  value="account">
                <!--  <span>Nearby</span> -->
                 <v-icon>mdi-account</v-icon>
             </v-btn>

@@ -5,16 +5,83 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tbl_booking;
+use App\Models\tbl_user_details;
 use Illuminate\Support\Facades\DB;
 class BookingController extends Controller
 {
     //
 
     public function Allbooking() {
-        $booking = tbl_booking::select('*')->get();
+      
+       /*  $booking = tbl_booking::select('*')->get();
 
-        return $booking;
+        return $booking; */
+        $userId = auth("sanctum")->id();
+        if(auth("sanctum")->user()->user_type == "driver")
+        {
+            $driver = tbl_user_details::where('user_id', $userId)->first();
+
+            if($driver->status == 1){
+                $booking = tbl_booking::where('tbl_bookings.driver_id', $userId)->select('tbl_bookings.*', 
+                DB::raw("CONCAT(tbl_user_details.first_name,' ',tbl_user_details.last_name) as name"))
+                ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'tbl_bookings.passenger_id')
+                ->where('tbl_bookings.booking_status','available')
+                ->get();
+                return $booking;
+            }elseif($driver->status == 2){
+                $booking = tbl_booking::where('tbl_bookings.driver_id', $userId)->select('tbl_bookings.*', 
+                DB::raw("CONCAT(tbl_user_details.first_name,' ',tbl_user_details.last_name) as name"))
+                ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'tbl_bookings.passenger_id')
+                ->where('tbl_bookings.booking_status','booked')
+                ->first();
+                return $booking;
+            }
+
+            
+        }
     }
+
+    public function BookingDetails($id) {
+      
+         $booking = tbl_booking::where('tbl_bookings.id', $id)->select('tbl_bookings.*', 
+         DB::raw("CONCAT(tbl_user_details.first_name,' ',tbl_user_details.last_name) as name"))
+         ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'tbl_bookings.passenger_id')
+         ->first();
+        
+         return $booking;
+     }
+
+     public function AcceptBooking($id) {
+        $userId = auth("sanctum")->id();
+        $booking = tbl_booking::where('tbl_bookings.id', $id)->first();
+        if($booking){
+            $booking->booking_status = 'booked';
+            $booking->save();
+
+            $driver = tbl_user_details::where('user_id', $userId)->first();
+            $driver->status = 2;
+            $driver->save();
+        }
+
+    }
+
+    public function CancelAcceptedBooking($id) {
+        $userId = auth("sanctum")->id();
+        $booking = tbl_booking::where('tbl_bookings.id', $id)->first();
+        if($booking){
+            $booking->booking_status = 'cancelled';
+            $booking->save();
+
+            $driver = tbl_user_details::where('user_id', $userId)->first();
+            $driver->status = 1;
+            $driver->save();
+        }
+
+    }
+
+    
+
+     
 
 
     public function deleteBooking($booking_id) {
@@ -63,7 +130,7 @@ class BookingController extends Controller
         $booking->passenger_id =  $passenger_id;
         $booking->from = $request->from_location;
         $booking->to = $request->to_location;
-        $booking->booking_status = 1;
+        $booking->booking_status = 'available';
         $booking->fare = 15;
 
         $booking->save();
@@ -73,24 +140,29 @@ class BookingController extends Controller
 
 
     public function userBookingHistory() {
-        $user = $sanctum_user;
+       /*  $user = $sanctum_user;
         if($user['role'] == 'Passenger') {
             $booking = tbl_booking::select('*')
             ->where('passenger_id', $user_id)
             ->get();
 
             return $booking;
+        } */
+        $userId = auth("sanctum")->id();
+        if(auth("sanctum")->user()->user_type == "driver") {
+
+            $booking = tbl_booking::where('tbl_bookings.driver_id', $userId)->select('tbl_bookings.*', 
+                DB::raw("CONCAT(tbl_user_details.first_name,' ',tbl_user_details.last_name) as name"))
+                ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'tbl_bookings.passenger_id')
+                ->where('tbl_bookings.booking_status', '!=', 'available')
+                ->get();
+
+            return $booking;
         }
 
-        if($user['role'] == 'Driver') {
-            $booking = tbl_booking::select('*')
-            ->where('driver_id' , $user_id)
-            ->get();
-        }
 
 
-
-        return $booking;
+       
 
      
     }

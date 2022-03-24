@@ -8,28 +8,18 @@
             </v-btn>
         </v-app-bar> -->
 
-{{from_lat}}
+<!-- {{from_lat}}
 
 {{from_long}}
-
+ -->
 
 
 
         <v-row justify="center">
             <v-col cols="12" md="4">
-<<<<<<< HEAD
-                
-<v-btn @click="locatorButtonPressed">
-Get my location
-</v-btn>
-                <v-card class="" color="#2196F3">
-                    <div class="px-2 py-2">
-                        <v-text-field hide-details rounded solo :dense="true" value="FL. D Hall"></v-text-field>
-=======
                 <v-card class="pa-4" color="primary">
                     <div class="pt-2 pb-2 pl-2 pr-2">
                         <v-text-field hide-details rounded solo  value="FL. D Hall"></v-text-field>
->>>>>>> 956c57ed2c78da22cab964dd077d538da3f75f05
                     </div>
                     <div class="px-2 py-2">
                         <v-text-field hide-details rounded solo :dense="true" value="Cauyan, Isa"></v-text-field>
@@ -48,13 +38,8 @@ Get my location
                                 </div>
                             </v-list-item-content>
                             <v-list-item-action>
-<<<<<<< HEAD
-                                <div style="background-color:#2196F3;border-radius:10px" class="pa-4">
-                                    <span class="font-weight-bold white--text">
-=======
                                 <div style="background-color:#FF9800;border-radius:10px" class="pa-4">
                                     <span  class="font-weight-bold white--text">
->>>>>>> 956c57ed2c78da22cab964dd077d538da3f75f05
                                         P100
                                     </span>
                                 </div>
@@ -66,11 +51,7 @@ Get my location
                 <div class="mx-auto mt-5 pl-1 pr-1 mb-1" elevation="0">
                     <v-row>
                         <v-col class="text-center" v-for="(item, index) in list" :key="index" cols="3">
-<<<<<<< HEAD
-                            <v-btn style="height: 50px;" dark color="#2196F3">
-=======
                             <v-btn class="pt-8 pb-8 pl-2 pr-2" dark color="primary" >
->>>>>>> 956c57ed2c78da22cab964dd077d538da3f75f05
                                 <v-icon dark>{{item}}</v-icon>
                             </v-btn>
                         </v-col>

@@ -27,21 +27,21 @@
                             Name:
                         </v-col>
                         <v-col cols="8">
-                            Juan Tamad
+                            {{details.name}}
                         </v-col>
 
                          <v-col cols="4">
                            Pick Up Location:
                         </v-col>
                         <v-col cols="8">
-                            P3, Alicia, Isa
+                            {{details.from}}
                         </v-col>
 
                          <v-col cols="4">
                            Destination:
                         </v-col>
                         <v-col cols="8">
-                            Zone 3, Manila, Ph
+                            {{details.to}}
                         </v-col>
                     </v-row>
 
@@ -49,19 +49,49 @@
                     <div>
                         <v-divider class="mb-2"></v-divider >
                         <span class="font-weight-medium">Description: <br>
-                            Dito lang po sa tapat ng langit at lupa at may puno sa tabi ko na may dahon na green.
+                            {{details.description}}
                         </span>
                     </div>
                    
                 </v-col>
 
                  <v-col  cols="12" md="7">
-                     <v-btn class="pt-6 pb-6" rounded color="primary" block>Accept Booking</v-btn>
+
+                     <div class="d-flex">
+                        <v-btn @click="acceptBooking()" class="pt-6 pb-6" style="width:80%" rounded color="primary" >Accept Booking</v-btn>
+                    <v-btn class="pt-6 pb-6 ml-2" outlined  rounded color="primary" ><v-icon>mdi-message</v-icon></v-btn>
+                     </div>
+                     
                 </v-col>
             </v-row>
-           <!--  <div>
-                Name: Juan Dela Cruz
-            </div> -->
+       
     
     </div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            details: null
+        }
+    },
+    methods:{
+        getBookingDetails(){
+            axios.get('/api/booking/details/'+this.$route.params.id)
+            .then((res)=>{
+                this.details = res.data;
+            })
+        },
+        acceptBooking(){
+            axios.put('/api/booking/accept_booking/'+this.$route.params.id)
+            .then((res)=>{
+                this.$store.dispatch('setStatus', 2);
+                this.$router.push({name: 'Home'});
+            })
+        }
+    },
+    mounted(){
+        this.getBookingDetails();
+    }
+}
+</script>

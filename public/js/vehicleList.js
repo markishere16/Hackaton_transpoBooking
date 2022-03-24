@@ -114,25 +114,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -229,7 +210,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      logo: '../../images/transpologo.png',
+      logo: '../../images/transpologo2.jpg',
       form: {
         username: '',
         password: ''
@@ -339,6 +320,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -362,6 +354,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     updateProfile: function updateProfile() {
       axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {});
+    },
+    UploadProfile: function UploadProfile() {
+      this.$refs.fileInput.click();
+    },
+    onFileChange: function onFileChange(element) {
+      this.imageFile = element.target.files[0];
+      this.get_CurrentUser.profile = URL.createObjectURL(this.imageFile);
     }
   })
   /*  mounted(){
@@ -590,8 +589,273 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-row",
+        { attrs: { justify: "center" } },
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "4" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "pa-4", attrs: { color: "primary" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "pt-2 pb-2 pl-2 pr-2" },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "hide-details": "",
+                          rounded: "",
+                          solo: "",
+                          value: "FL. D Hall",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "px-2 py-2" },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "hide-details": "",
+                          rounded: "",
+                          solo: "",
+                          dense: true,
+                          value: "Cauyan, Isa",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card",
+                {
+                  staticClass: "mx-auto mt-3",
+                  attrs: { elevation: "1", outlined: "" },
+                },
+                [
+                  _c(
+                    "v-list",
+                    { staticClass: "pa-0" },
+                    [
+                      _c(
+                        "v-list-item",
+                        [
+                          _c("v-list-item-content", [
+                            _c("div", [
+                              _c(
+                                "span",
+                                [
+                                  _c("v-icon", { attrs: { small: "" } }, [
+                                    _vm._v("mdi-map-marker-distance"),
+                                  ]),
+                                  _vm._v(" 3km "),
+                                  _c("br"),
+                                  _vm._v(" "),
+                                  _c("v-icon", { attrs: { small: "" } }, [
+                                    _vm._v("mdi-map-marker-distance"),
+                                  ]),
+                                  _vm._v(
+                                    " Est. time 20mins\n                                    "
+                                  ),
+                                ],
+                                1
+                              ),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("v-list-item-action", [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "pa-4",
+                                staticStyle: {
+                                  "background-color": "#FF9800",
+                                  "border-radius": "10px",
+                                },
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "font-weight-bold white--text",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                        P100\n                                    "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "mx-auto mt-5 pl-1 pr-1 mb-1",
+                  attrs: { elevation: "0" },
+                },
+                [
+                  _c(
+                    "v-row",
+                    _vm._l(_vm.list, function (item, index) {
+                      return _c(
+                        "v-col",
+                        {
+                          key: index,
+                          staticClass: "text-center",
+                          attrs: { cols: "3" },
+                        },
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass: "pt-8 pb-8 pl-2 pr-2",
+                              attrs: { dark: "", color: "primary" },
+                            },
+                            [
+                              _c("v-icon", { attrs: { dark: "" } }, [
+                                _vm._v(_vm._s(item)),
+                              ]),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                {
+                  staticClass: " mx-auto",
+                  staticStyle: { height: "20px !important" },
+                  attrs: { fluid: "" },
+                },
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-list",
+                        _vm._l(_vm.available_drivers, function (driver, index) {
+                          return _c(
+                            "v-card",
+                            { key: index, staticClass: "my-1" },
+                            [
+                              _c(
+                                "v-list-item",
+                                [
+                                  _c(
+                                    "v-list-item-avatar",
+                                    [
+                                      _c("v-icon", [
+                                        _vm._v("mdi-rickshaw-electric"),
+                                      ]),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-list-item-content",
+                                    [
+                                      _c("v-list-item-title", [
+                                        _vm._v(
+                                          _vm._s(driver.last_name) +
+                                            " , " +
+                                            _vm._s(driver.first_name) +
+                                            "\n                                        "
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("v-list-item-subtitle", [
+                                        _vm._v(
+                                          "Contact #: " +
+                                            _vm._s(driver.contact_no)
+                                        ),
+                                      ]),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-list-item-action",
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: { color: "primary" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.BookNowHandler(
+                                                driver.id
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [_vm._v("Book")]
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          )
+                        }),
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -639,6 +903,7 @@ var render = function () {
                         [
                           _c(
                             "div",
+                            { staticClass: "d-flex justify-center" },
                             [
                               _c("v-img", {
                                 attrs: {
@@ -773,6 +1038,8 @@ var render = function () {
           attrs: { app: "", flat: "" },
         },
         [
+          _c("h3", [_vm._v("Profile")]),
+          _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
           _c(
@@ -810,8 +1077,8 @@ var render = function () {
                     [
                       _c("v-img", {
                         attrs: {
-                          src: "https://cdn.vuetifyjs.com/images/john.jpg",
-                          alt: "John",
+                          src: _vm.get_CurrentUser.profile,
+                          alt: "Profile",
                         },
                       }),
                     ],
@@ -819,6 +1086,21 @@ var render = function () {
                   ),
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticStyle: { "text-decoration": "none" },
+                  attrs: { href: "" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.UploadProfile()
+                    },
+                  },
+                },
+                [_vm._v("Update Picture")]
               ),
             ]
           ),
@@ -955,6 +1237,13 @@ var render = function () {
         ],
         1
       ),
+      _vm._v(" "),
+      _c("input", {
+        ref: "fileInput",
+        staticClass: "d-none",
+        attrs: { type: "file", id: "image-input", accept: "image/jpeg" },
+        on: { change: _vm.onFileChange },
+      }),
     ],
     1
   )

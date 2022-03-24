@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-app-bar style="background-color:white"   app  flat >
+             <h3>Profile</h3>
             <v-spacer></v-spacer>
             <v-btn @click="logout()" color="red" icon>
                 <v-icon >mdi-logout</v-icon>
@@ -10,9 +11,11 @@
             <v-col class="text-center" cols="12" md="7">
                 <div class="mt-2">
                     <v-avatar size="120">
-                        <v-img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"></v-img>
+                        <v-img :src="get_CurrentUser.profile" alt="Profile"></v-img>
                     </v-avatar>
+                    
                 </div>
+                <a @click.prevent="UploadProfile()" style="text-decoration:none" href>Update Picture</a>
             </v-col>
 
              <v-col class="text-center" cols="12" md="7">
@@ -43,6 +46,14 @@
             </v-col> -->
             
         </v-row>
+
+        <input
+        ref="fileInput"
+        class="d-none"
+        type="file"
+        id="image-input"
+        accept="image/jpeg"
+        @change="onFileChange">
         
     </div>
 </template>
@@ -83,7 +94,15 @@ export default {
                 .then((res)=>{
 
                 })
-            }
+            },
+            UploadProfile(){
+             this.$refs.fileInput.click();
+            },
+            onFileChange(element) {    
+                this.imageFile = element.target.files[0];
+                this.get_CurrentUser.profile =   URL.createObjectURL(this.imageFile)
+            
+            },
     },
    /*  mounted(){
         this.fetchCurrentUser();
