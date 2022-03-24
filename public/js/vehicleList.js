@@ -170,7 +170,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   } else {
                     _this.loading = false;
                   }
-                }).cathc(function () {
+                })["catch"](function () {
                   _this.loading = false;
                 });
 

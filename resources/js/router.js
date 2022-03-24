@@ -38,20 +38,18 @@ const router = new Router({
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/mapComponent"),
                         name: "map"
                     },
-<<<<<<< HEAD
 
                     {
                         path: "/bookingPreview/:id",
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/bookingPreview/bookingPreview"),
                         name: "bookingPreview"
-=======
+                    },
                     {
                         path: "manage-user",
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/manage-user/manage-userComponent"),
                         name: "manageUser"
->>>>>>> 0cfaceb764eaa2446ad584a10bda39f2aa82d118
                     },
                 ]
             }]
