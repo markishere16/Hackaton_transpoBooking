@@ -3,7 +3,7 @@
     <v-app style="background: rgb(238, 238, 238);">
         <navigation></navigation>
         <v-main>
-            <v-container fluid>
+            <v-container fluid class="container">
                 <router-view ></router-view>
             </v-container>
         </v-main>
@@ -21,3 +21,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.container {
+    padding: 0;
+}
+</style>
