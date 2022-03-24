@@ -26,13 +26,14 @@
                 </div>
             </v-col>
              <v-col class="text-center" cols="12" md="7">
-                <div>
+                <div class="d-flex">
                     <v-text-field label="Address" hide-details rounded outlined v-model="get_CurrentUser.address"></v-text-field>
+                    <v-btn color="primary" class="mt-2" large icon><v-icon large>mdi-map-marker</v-icon></v-btn>
                 </div>
             </v-col>
              <v-col class="text-center" cols="12" md="7">
                 <div>
-                    <v-btn  rounded block dark color="primary">Update</v-btn>
+                    <v-btn @click="updateProfile()" class="pt-6 pb-6" rounded block dark color="primary">Update</v-btn>
                 </div>
             </v-col>
             <!-- <v-col class="text-center" cols="12" md="7">
@@ -77,9 +78,15 @@ export default {
                 .catch((e) => {
                 })
             },
+            updateProfile(){
+                axios.put('/api/users/update_profile/'+this.get_CurrentUser.user_id, this.get_CurrentUser)
+                .then((res)=>{
+
+                })
+            }
     },
-    mounted(){
+   /*  mounted(){
         this.fetchCurrentUser();
-    }
+    } */
 }
 </script>

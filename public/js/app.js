@@ -2331,7 +2331,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use((vuetify_dist_vuetify_min_js__WEBPACK_IMPORTED_MODULE_2___default()));
-var opts = {};
+var opts = {
+  theme: {
+    themes: {
+      light: {
+        primary: '#FF9800'
+      }
+    }
+  }
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new (vuetify_dist_vuetify_min_js__WEBPACK_IMPORTED_MODULE_2___default())(opts));
 
 /***/ }),

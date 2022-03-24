@@ -29,7 +29,9 @@ Route::prefix('/users')->group(function () {
     Route::post('/upsert/{user_type}', [UserController::class, 'upSert']);
     Route::delete('/delete/{id}', [UserController::class, 'deleteUser']);
     Route::post('/add', [UserController::class, 'AddUser']);
+    Route::put('/update_profile/{id}', [UserController::class, 'UpdateProfile']);
     Route::get('/details', [UserController::class, 'currentUser']);
+
     
 });
 

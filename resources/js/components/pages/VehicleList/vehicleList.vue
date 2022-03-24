@@ -11,7 +11,7 @@
 
         <v-row justify="center">
             <v-col cols="12" md="4">
-                <v-card class="pa-4" color="#2196F3">
+                <v-card class="pa-4" color="primary">
                     <div class="pt-2 pb-2 pl-2 pr-2">
                         <v-text-field hide-details rounded solo  value="FL. D Hall"></v-text-field>
                     </div>
@@ -32,7 +32,7 @@
                                 </div>
                             </v-list-item-content>
                             <v-list-item-action>
-                                <div style="background-color:#2196F3;border-radius:10px" class="pa-4">
+                                <div style="background-color:#FF9800;border-radius:10px" class="pa-4">
                                     <span  class="font-weight-bold white--text">
                                         P100
                                     </span>
@@ -45,7 +45,7 @@
                 <div class="mx-auto mt-5 pl-1 pr-1 mb-1" elevation="0">
                     <v-row>
                         <v-col class="text-center" v-for="(item, index) in list" :key="index" cols="3">
-                            <v-btn class="pt-8 pb-8 pl-2 pr-2" dark color="#2196F3" >
+                            <v-btn class="pt-8 pb-8 pl-2 pr-2" dark color="primary" >
                                 <v-icon dark>{{item}}</v-icon>
                             </v-btn>
                         </v-col>

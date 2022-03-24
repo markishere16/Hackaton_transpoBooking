@@ -251,6 +251,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -271,11 +272,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           name: "login"
         });
       })["catch"](function (e) {});
+    },
+    updateProfile: function updateProfile() {
+      axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {});
     }
-  }),
-  mounted: function mounted() {
-    this.fetchCurrentUser();
-  }
+  })
+  /*  mounted(){
+       this.fetchCurrentUser();
+   } */
+
 });
 
 /***/ }),
@@ -515,7 +520,7 @@ var render = function () {
             [
               _c(
                 "v-card",
-                { staticClass: "pa-4", attrs: { color: "#2196F3" } },
+                { staticClass: "pa-4", attrs: { color: "primary" } },
                 [
                   _c(
                     "div",
@@ -593,7 +598,7 @@ var render = function () {
                               {
                                 staticClass: "pa-4",
                                 staticStyle: {
-                                  "background-color": "#2196F3",
+                                  "background-color": "#FF9800",
                                   "border-radius": "10px",
                                 },
                               },
@@ -644,7 +649,7 @@ var render = function () {
                             "v-btn",
                             {
                               staticClass: "pt-8 pb-8 pl-2 pr-2",
-                              attrs: { dark: "", color: "#2196F3" },
+                              attrs: { dark: "", color: "primary" },
                             },
                             [
                               _c("v-icon", { attrs: { dark: "" } }, [
@@ -1014,6 +1019,7 @@ var render = function () {
             [
               _c(
                 "div",
+                { staticClass: "d-flex" },
                 [
                   _c("v-text-field", {
                     attrs: {
@@ -1030,6 +1036,20 @@ var render = function () {
                       expression: "get_CurrentUser.address",
                     },
                   }),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "mt-2",
+                      attrs: { color: "primary", large: "", icon: "" },
+                    },
+                    [
+                      _c("v-icon", { attrs: { large: "" } }, [
+                        _vm._v("mdi-map-marker"),
+                      ]),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
@@ -1046,11 +1066,17 @@ var render = function () {
                   _c(
                     "v-btn",
                     {
+                      staticClass: "pt-6 pb-6",
                       attrs: {
                         rounded: "",
                         block: "",
                         dark: "",
                         color: "primary",
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.updateProfile()
+                        },
                       },
                     },
                     [_vm._v("Update")]
