@@ -97,6 +97,6 @@ export default {
                     alert(res.data);
                 })
             },
-    }
+   }
 }
 </script>

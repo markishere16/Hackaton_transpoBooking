@@ -88,7 +88,8 @@ export default {
                 this.$store.dispatch('setStatus', 2);
                 this.$router.push({name: 'Home'});
             })
-        }
+        },
+       
     },
     mounted(){
         this.getBookingDetails();
