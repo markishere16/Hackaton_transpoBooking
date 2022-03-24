@@ -49,13 +49,10 @@ class UserController extends Controller
 
     public function upSert( $user_type, Request $request) {
 
-
-
         $user_details = tbl_user_details::find($request->user_id);
 
         if($user_details) {
             
-
             $user = User::find($request->user_id);
 
             $user->user_name = $request->user_name;
@@ -138,6 +135,33 @@ class UserController extends Controller
 
         ]);
     }
+
+    public function UpdateProfile(Request $request, $id) {
+        
+        
+        $user = tbl_user_details::where('user_id', $id)->first();
+        if($user) {
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->address = $request->address;
+            $user->status = $request->status;
+            $user->save();
+            return response()->json([
+                "message" => "Successfully Updated!",
+                "success" => true,
+    
+            ]);
+        }
+
+        return response()->json([
+            "message" => "The provided details is invalid!",
+            "success" => false
+        ]);
+        
+    }
+
+
+    
 
 
     

@@ -125,6 +125,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['get_CurrentUser'],
   data: function data() {
@@ -149,6 +157,9 @@ __webpack_require__.r(__webpack_exports__);
           id: id
         }
       });
+    },
+    updateProfile: function updateProfile() {
+      axios.put('/api/users/update_profile/' + this.get_CurrentUser.user_id, this.get_CurrentUser).then(function (res) {});
     }
   }
 });
@@ -183,6 +194,71 @@ __webpack_require__.r(__webpack_exports__);
     passengerHome: _passengerHome__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["get_CurrentUser"])
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      sheet: false
+    };
+  }
 });
 
 /***/ }),
@@ -1033,15 +1109,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _passengerHome_vue_vue_type_template_id_307b3cdf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passengerHome.vue?vue&type=template&id=307b3cdf& */ "./resources/js/components/pages/home/passengerHome.vue?vue&type=template&id=307b3cdf&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _passengerHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./passengerHome.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _passengerHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _passengerHome_vue_vue_type_template_id_307b3cdf___WEBPACK_IMPORTED_MODULE_0__.render,
   _passengerHome_vue_vue_type_template_id_307b3cdf___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -1256,6 +1334,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/home.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_passengerHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./passengerHome.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/home/passengerHome.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_passengerHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -1531,7 +1624,7 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          !_vm.$vuetify.breakpoint.mdAndUp ? _c("bottomnavigation") : _vm._e(),
+          _c("bottomnavigation"),
         ],
         1
       ),
@@ -1581,11 +1674,7 @@ var render = function () {
                 },
               },
             },
-            [
-              _c("v-icon", { attrs: { large: "" } }, [
-                _vm._v("mdi-arrow-left"),
-              ]),
-            ],
+            [_c("v-icon", [_vm._v("mdi-arrow-left")])],
             1
           ),
           _vm._v(" "),
@@ -1606,12 +1695,16 @@ var render = function () {
                 "div",
                 [
                   _c(
-                    "v-icon",
-                    {
-                      staticStyle: { "font-size": "6rem" },
-                      attrs: { large: "", color: "blue" },
-                    },
-                    [_vm._v("mdi-rickshaw-electric")]
+                    "v-avatar",
+                    { attrs: { size: "150" } },
+                    [
+                      _c("v-img", {
+                        attrs: {
+                          src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
+                        },
+                      }),
+                    ],
+                    1
                   ),
                 ],
                 1
@@ -1619,6 +1712,87 @@ var render = function () {
               _vm._v(" "),
               _c("div", [_c("h3", [_vm._v("Booking Details")])]),
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "7" } },
+            [
+              _c(
+                "v-row",
+                [
+                  _c("v-col", { attrs: { cols: "4" } }, [
+                    _vm._v(
+                      "\n                        Name:\n                    "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "8" } }, [
+                    _vm._v(
+                      "\n                        Juan Tamad\n                    "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "4" } }, [
+                    _vm._v(
+                      "\n                       Pick Up Location:\n                    "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "8" } }, [
+                    _vm._v(
+                      "\n                        P3, Alicia, Isa\n                    "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "4" } }, [
+                    _vm._v(
+                      "\n                       Destination:\n                    "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "8" } }, [
+                    _vm._v(
+                      "\n                        Zone 3, Manila, Ph\n                    "
+                    ),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c("v-divider", { staticClass: "mb-2" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "font-weight-medium" }, [
+                    _vm._v("Description: "),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        Dito lang po sa tapat ng langit at lupa at may puno sa tabi ko na may dahon na green.\n                    "
+                    ),
+                  ]),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", md: "7" } },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "pt-6 pb-6",
+                  attrs: { rounded: "", color: "primary", block: "" },
+                },
+                [_vm._v("Accept Booking")]
+              ),
+            ],
+            1
           ),
         ],
         1
@@ -1654,6 +1828,7 @@ var render = function () {
     [
       _c(
         "v-row",
+        { attrs: { justify: "center" } },
         [
           _c("v-col", { attrs: { cols: "12", md: "7" } }, [
             _c(
@@ -1676,6 +1851,11 @@ var render = function () {
                         color: "green",
                         inset: "",
                         label: _vm.status ? "Active" : "Inactive",
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.updateProfile()
+                        },
                       },
                       model: {
                         value: _vm.get_CurrentUser.status,
@@ -1706,7 +1886,7 @@ var render = function () {
                         {
                           key: i,
                           staticClass: "mb-0 pb-0",
-                          attrs: { cols: "12", md: "7" },
+                          attrs: { cols: "12", md: "6" },
                         },
                         [
                           _c(
@@ -1714,6 +1894,11 @@ var render = function () {
                             {
                               staticClass: "pt-5 pb-5 pl-2 pr-2",
                               attrs: { link: "" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.openBooking(item.id)
+                                },
+                              },
                             },
                             [
                               _c(
@@ -1726,17 +1911,13 @@ var render = function () {
                                     [
                                       _c(
                                         "v-list-item-avatar",
+                                        { attrs: { size: "50" } },
                                         [
-                                          _c(
-                                            "v-icon",
-                                            {
-                                              attrs: {
-                                                large: "",
-                                                color: "blue",
-                                              },
+                                          _c("v-img", {
+                                            attrs: {
+                                              src: "https://ih1.redbubble.net/image.1723920174.8467/st,small,507x507-pad,600x600,f8f8f8.jpg",
                                             },
-                                            [_vm._v("mdi-rickshaw-electric")]
-                                          ),
+                                          }),
                                         ],
                                         1
                                       ),
@@ -1751,36 +1932,6 @@ var render = function () {
                                         _c("small", [
                                           _vm._v(_vm._s(item.address)),
                                         ]),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("v-list-item-action", [
-                                        _c(
-                                          "div",
-                                          { staticClass: "d-flex" },
-                                          [
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                staticClass: "mr-3",
-                                                attrs: {
-                                                  small: "",
-                                                  dark: "",
-                                                  color: "green",
-                                                  rounded: "",
-                                                },
-                                                on: {
-                                                  click: function ($event) {
-                                                    return _vm.openBooking(
-                                                      item.id
-                                                    )
-                                                  },
-                                                },
-                                              },
-                                              [_vm._v("Accept")]
-                                            ),
-                                          ],
-                                          1
-                                        ),
                                       ]),
                                     ],
                                     1
@@ -1801,9 +1952,33 @@ var render = function () {
                     _c(
                       "div",
                       [
-                        _c("v-container", { attrs: { "fill-height": "" } }),
-                        _vm._v(
-                          "\n                    Offline\n                "
+                        _c(
+                          "v-container",
+                          { attrs: { "fill-height": "" } },
+                          [
+                            _c(
+                              "v-row",
+                              { attrs: { justify: "center" } },
+                              [
+                                _c(
+                                  "v-col",
+                                  {
+                                    staticClass: "text-center",
+                                    attrs: { cols: "12", md: "7" },
+                                  },
+                                  [
+                                    _c("div", [
+                                      _vm._v(
+                                        "\n                                    Your are offline\n                                "
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
                         ),
                       ],
                       1
@@ -1844,7 +2019,7 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm.get_CurrentUser.user_type == "driver"
+      _vm.get_CurrentUser.user_type == "Driver"
         ? _c("driverHome", { attrs: { get_CurrentUser: _vm.get_CurrentUser } })
         : _vm._e(),
       _vm._v(" "),
@@ -1879,7 +2054,120 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    test\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-app-bar",
+        {
+          staticClass: "pt-2",
+          staticStyle: { "background-color": "white" },
+          attrs: { app: "", flat: "" },
+        },
+        [
+          _c("v-text-field", {
+            attrs: {
+              outlined: "",
+              "hide-details": "",
+              rounded: "",
+              "prepend-inner-icon": "mdi-magnify",
+              placeholder: "Search Location",
+            },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { justify: "center" } },
+        [
+          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+            _c("div", { staticClass: "mt-1 mb-1" }, [
+              _c("div", { staticStyle: { "border-radius": "15px" } }, [
+                _c("iframe", {
+                  staticStyle: { border: "0", "border-radius": "10px" },
+                  attrs: {
+                    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3816.820602732005!2d121.77248941527648!3d16.93413922017468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x338551ae73cf6959%3A0x99709e22896938af!2sF.L.DY%20COLISEUM!5e0!3m2!1sen!2sph!4v1648147019523!5m2!1sen!2sph",
+                    width: "100%",
+                    height: "640",
+                    allowfullscreen: "",
+                    loading: "lazy",
+                    referrerpolicy: "no-referrer-when-downgrade",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "pt-6 pb-6",
+                      attrs: { color: "primary", block: "", rounded: "" },
+                      on: {
+                        click: function ($event) {
+                          _vm.sheet = true
+                        },
+                      },
+                    },
+                    [_vm._v("Book Transport")]
+                  ),
+                ],
+                1
+              ),
+            ]),
+          ]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-bottom-sheet",
+        {
+          model: {
+            value: _vm.sheet,
+            callback: function ($$v) {
+              _vm.sheet = $$v
+            },
+            expression: "sheet",
+          },
+        },
+        [
+          _c(
+            "v-sheet",
+            { staticClass: "text-center", attrs: { height: "400px" } },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mt-3",
+                  attrs: { icon: "", color: "red" },
+                  on: {
+                    click: function ($event) {
+                      _vm.sheet = !_vm.sheet
+                    },
+                  },
+                },
+                [_c("v-icon", [_vm._v("mdi-close")])],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "py-3" }, [
+                _vm._v(
+                  "\n                This is a bottom sheet using the controlled by v-model instead of activator\n            "
+                ),
+              ]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

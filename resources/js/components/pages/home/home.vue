@@ -1,6 +1,6 @@
 <template>
     <div>
-      <driverHome :get_CurrentUser="get_CurrentUser" v-if="get_CurrentUser.user_type == 'driver'"></driverHome>
+      <driverHome :get_CurrentUser="get_CurrentUser" v-if="get_CurrentUser.user_type == 'Driver'"></driverHome>
       <passengerHome :get_CurrentUser="get_CurrentUser" v-if="get_CurrentUser.user_type == 'passenger'"></passengerHome>
     </div>
 </template>

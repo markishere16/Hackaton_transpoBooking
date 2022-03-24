@@ -7,7 +7,7 @@
                 <router-view ></router-view>
             </v-container>
         </v-main>
-        <bottomnavigation v-if="!$vuetify.breakpoint.mdAndUp"></bottomnavigation>
+        <bottomnavigation ></bottomnavigation>
     </v-app>
 </div>
 </template>
