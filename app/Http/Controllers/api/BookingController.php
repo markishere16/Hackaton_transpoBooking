@@ -158,6 +158,14 @@ class BookingController extends Controller
                 ->get();
 
             return $booking;
+        }else{
+            $booking = tbl_booking::where('tbl_bookings.passenger_id', $userId)->select('tbl_bookings.*', 
+            DB::raw("CONCAT(tbl_user_details.first_name,' ',tbl_user_details.last_name) as name"))
+            ->leftJoin('tbl_user_details', 'tbl_user_details.user_id', '=', 'tbl_bookings.passenger_id')
+            ->where('tbl_bookings.booking_status', '!=', 'available')
+            ->get();
+
+        return $booking;
         }
 
 
