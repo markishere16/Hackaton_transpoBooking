@@ -1,7 +1,7 @@
 <template>
     <div>
     <v-app style="background-color:white" >
-        <navigation></navigation>
+        <!-- <navigation></navigation> -->
         <v-main>
             <v-container fluid class="container">
                 <router-view ></router-view>
@@ -40,6 +40,9 @@ export default {
             });
         },
     },
+    mounted(){
+        this.fetchCurrentUser();
+    }
 
 }
 </script>

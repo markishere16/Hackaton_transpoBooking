@@ -146,7 +146,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         username: '',
         password: ''
-      }
+      },
+      loading: false
     };
   },
   methods: {
@@ -158,15 +159,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.loading = true;
                 axios.post('/api/login', _this.form).then(function (res) {
                   if (res.data.success == true) {
-                    _this.$router.push({
-                      name: "Home"
-                    });
+                    setTimeout(function () {
+                      _this.isLoading = false, _this.$router.push({
+                        name: "Home"
+                      });
+                    }, 1000);
+                  } else {
+                    _this.loading = false;
                   }
+                }).cathc(function () {
+                  _this.loading = false;
                 });
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -238,6 +246,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -246,7 +259,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["get_CurrentUser"]),
-  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['fetchCurrentUser'])),
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['fetchCurrentUser'])), {}, {
+    logout: function logout() {
+      var _this = this;
+
+      this.$store.dispatch('clearClassesNames');
+      this.isLogout = true;
+      axios.post('/api/logout').then(function () {
+        //this.clear_current_user();
+        _this.$router.push({
+          name: "login"
+        });
+      })["catch"](function (e) {});
+    }
+  }),
   mounted: function mounted() {
     this.fetchCurrentUser();
   }
@@ -812,6 +838,7 @@ var render = function () {
                             "v-btn",
                             {
                               attrs: {
+                                loading: _vm.loading,
                                 rounded: "",
                                 block: "",
                                 color: "primary",
@@ -868,6 +895,32 @@ var render = function () {
   return _c(
     "div",
     [
+      _c(
+        "v-app-bar",
+        {
+          staticStyle: { "background-color": "white" },
+          attrs: { app: "", flat: "" },
+        },
+        [
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "red", icon: "" },
+              on: {
+                click: function ($event) {
+                  return _vm.logout()
+                },
+              },
+            },
+            [_c("v-icon", [_vm._v("mdi-logout")])],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c(
         "v-row",
         { attrs: { justify: "center" } },

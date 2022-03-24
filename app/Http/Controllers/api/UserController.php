@@ -15,6 +15,7 @@ class UserController extends Controller
     public function currentUser() {
         $userId = auth('sanctum')->id();
         $currentUser = tbl_user_details::where('user_id', $userId)->first();
+        $currentUser->user_type = auth("sanctum")->user()->user_type;
         return $currentUser;
 
        /*  $currentUser = auth('sanctum')->user();

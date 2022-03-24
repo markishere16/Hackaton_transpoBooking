@@ -37,6 +37,13 @@ const router = new Router({
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/mapComponent"),
                         name: "map"
                     },
+
+                    {
+                        path: "/bookingPreview/:id",
+                        component: () =>
+                            import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/bookingPreview/bookingPreview"),
+                        name: "bookingPreview"
+                    },
                 ]
             }]
         },

@@ -16,7 +16,7 @@
                            <v-text-field type="password" v-model="form.password"  hide-details rounded outlined label="Password"></v-text-field>
                        </v-col>
                         <v-col cols="12" md="7">
-                           <v-btn @click="login()"  rounded block color="primary">Login</v-btn>
+                           <v-btn @click="login()" :loading="loading"  rounded block color="primary">Login</v-btn>
                        </v-col>
                    </v-row>
 
@@ -33,16 +33,24 @@ export default {
             form:{
                 username: '',
                 password:''
-            }
+            },
+            loading: false
         }
     },
     methods:{
         async login(){
+            this.loading = true;
             axios.post('/api/login', this.form)
             .then((res)=>{
                 if(res.data.success == true){
+                    setTimeout(() => {this.isLoading = false,
                     this.$router.push({name: "Home"})
+                    }, 1000);
+                }else{
+                    this.loading = false;
                 }
+            }).cathc(()=>{
+                this.loading = false;
             })
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-bottom-navigation   elevation="0" grow app flat v-model="value">
+        <v-bottom-navigation color="primary"   elevation="0" grow app flat v-model="value">
             <v-btn :to="{name: 'vehiclelist'}" value="home">
                <!--  <span>Home</span> -->
                 <v-icon>mdi-map-marker-distance</v-icon>

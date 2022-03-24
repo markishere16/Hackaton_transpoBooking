@@ -1,6 +1,11 @@
 <template>
     <div>
-
+        <v-app-bar style="background-color:white"   app  flat >
+            <v-spacer></v-spacer>
+            <v-btn @click="logout()" color="red" icon>
+                <v-icon >mdi-logout</v-icon>
+            </v-btn>
+        </v-app-bar>
         <v-row justify="center" >
             <v-col class="text-center" cols="12" md="7">
                 <div class="mt-2">
@@ -59,6 +64,19 @@ export default {
     computed: mapGetters(["get_CurrentUser"]),
     methods:{
         ...mapActions(['fetchCurrentUser']),
+        logout() {
+            this.$store.dispatch('clearClassesNames');
+            this.isLogout = true;
+            axios.post('/api/logout')
+                .then(() => {
+                    //this.clear_current_user();
+                    this.$router.push({
+                        name: "login"
+                    })
+                })
+                .catch((e) => {
+                })
+            },
     },
     mounted(){
         this.fetchCurrentUser();

@@ -32,4 +32,18 @@ class AuthController extends Controller
         }
         
     }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request) {
+/*         $session = DB::table('sessions')->where('id', \Session::getId())->delete();
+        request()->user()->tokens()->delete(); */
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+    }
 }
