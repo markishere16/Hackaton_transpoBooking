@@ -2377,21 +2377,40 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/layout/mainLayout */ "./resources/js/components/layout/mainLayout.vue"));
       },
-      name: "Home",
       children: [{
         path: "",
         component: function component() {
-          return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/home */ "./resources/js/components/pages/home.vue"));
+          return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/home/home */ "./resources/js/components/pages/home/home.vue"));
         },
         name: "Home"
       }, {
+<<<<<<< HEAD
         path: "map",
         component: function component() {
           return __webpack_require__.e(/*! import() | mainLayout */ "mainLayout").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/mapComponent */ "./resources/js/components/pages/mapComponent.vue"));
         },
         name: "map"
+=======
+        path: "/vehiclelist",
+        component: function component() {
+          return __webpack_require__.e(/*! import() | vehicleList */ "vehicleList").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/VehicleList/vehicleList */ "./resources/js/components/pages/VehicleList/vehicleList.vue"));
+        },
+        name: "vehiclelist"
+      }, {
+        path: "/profile",
+        component: function component() {
+          return __webpack_require__.e(/*! import() | vehicleList */ "vehicleList").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/profile/profile */ "./resources/js/components/pages/profile/profile.vue"));
+        },
+        name: "profile"
+>>>>>>> 894978800cb49adc9f3b9a839f19d08e5a610643
       }]
     }]
+  }, {
+    path: "/login",
+    component: function component() {
+      return __webpack_require__.e(/*! import() | vehicleList */ "vehicleList").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/login/login */ "./resources/js/components/pages/login/login.vue"));
+    },
+    name: "login"
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -21264,7 +21283,7 @@ var render = function () {
         [
           _c(
             "v-btn",
-            { attrs: { value: "home" } },
+            { attrs: { to: { name: "vehiclelist" }, value: "home" } },
             [_c("v-icon", [_vm._v("mdi-map-marker-distance")])],
             1
           ),
@@ -21280,11 +21299,16 @@ var render = function () {
             "v-btn",
             {
               staticStyle: { "border-radius": "50px !important" },
-              attrs: { rounded: "", color: "primary", value: "ticket" },
+              attrs: {
+                to: { name: "Home" },
+                rounded: "",
+                color: "primary",
+                value: "ticket",
+              },
             },
             [
-              _c("v-icon", { attrs: { color: "white" } }, [
-                _vm._v("mdi-ticket"),
+              _c("v-icon", { attrs: { large: "", color: "white" } }, [
+                _vm._v("mdi-home"),
               ]),
             ],
             1
@@ -21299,7 +21323,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { value: "nearby" } },
+            { attrs: { to: { name: "profile" }, value: "nearby" } },
             [_c("v-icon", [_vm._v("mdi-account")])],
             1
           ),
@@ -21336,31 +21360,10 @@ var render = function () {
   return _c(
     "div",
     [
-      _c(
-        "v-app-bar",
-        { attrs: { app: "", color: "transparent", flat: "", dark: "" } },
-        [
-          _c("v-app-bar-nav-icon", {
-            attrs: { color: "blue" },
-            on: {
-              click: function ($event) {
-                $event.stopPropagation()
-                _vm.drawer = !_vm.drawer
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { color: "blue", icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-account")])],
-            1
-          ),
-        ],
-        1
-      ),
+      _c("v-app-bar", {
+        staticStyle: { "background-color": "white" },
+        attrs: { app: "", flat: "" },
+      }),
       _vm._v(" "),
       _vm.$vuetify.breakpoint.mdAndUp
         ? _c(
@@ -39063,7 +39066,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "mainLayout") return "js/" + chunkId + ".js";
+/******/ 			if ({"mainLayout":1,"vehicleList":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

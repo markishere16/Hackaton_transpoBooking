@@ -1,16 +1,16 @@
 <template>
     <div>
-         <v-app-bar   app color="transparent" flat dark >
-            <v-app-bar-nav-icon color="blue" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+         <v-app-bar style="background-color:white"   app  flat >
+          <!--   <v-app-bar-nav-icon color="blue" @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
       
                <!--  <v-toolbar-title class="ml-0 white--text">
                     <span class="pointer">Name</span>
                 </v-toolbar-title> -->
-            <v-spacer></v-spacer>
+         <!--    <v-spacer></v-spacer>
          
             <v-btn color="blue" icon>
                 <v-icon>mdi-account</v-icon>
-            </v-btn>
+            </v-btn> -->
         </v-app-bar>
 
         <div v-if="$vuetify.breakpoint.mdAndUp">

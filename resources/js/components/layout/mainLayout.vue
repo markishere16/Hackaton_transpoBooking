@@ -1,6 +1,6 @@
 <template>
     <div>
-    <v-app style="background: rgb(238, 238, 238);">
+    <v-app style="background-color:white" >
         <navigation></navigation>
         <v-main>
             <v-container fluid class="container">
