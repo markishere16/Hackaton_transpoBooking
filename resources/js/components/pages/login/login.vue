@@ -49,7 +49,7 @@ export default {
                 }else{
                     this.loading = false;
                 }
-            }).cathc(()=>{
+            }).catch(()=>{
                 this.loading = false;
             })
         }
