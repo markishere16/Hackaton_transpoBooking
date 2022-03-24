@@ -4,6 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\DriverController;
+use App\Http\Controllers\api\UserCurrentLocationController;
+use App\Http\Controllers\api\BookingController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,13 +41,26 @@ Route::prefix('/users')->group(function () {
 
 //booking
 Route::prefix('/booking')->group(function () {
-    Route::get('/all', [bookingController::class, 'all']);
-    Route::get('/cancel/{id}', [bookingController::class, 'cancelBooking']);
-    Route::post('/add/{id}', [bookingController::class, 'addBooking']);
-    Route::delete('/delete/{id}', [bookingController::class, 'deleteUser']);
-    Route::get('/my-history', [bookingController::class, 'userBookingHistory']);
+    Route::get('/all', [BookingController::class, 'all']);
+    Route::get('/cancel/{id}', [BookingController::class, 'cancelBooking']);
+    Route::post('/add', [BookingController::class, 'addBooking']);
+    Route::delete('/delete/{id}', [BookingController::class, 'deleteUser']);
+    Route::get('/my-history', [BookingController::class, 'userBookingHistory']);
 
 });
+
+
+//drivers function
+Route::prefix('/drivers')->group(function () {
+    Route::get('/available', [DriverController::class, 'viewAvailableDrivers']);
+   
+});
+
+
+Route::get('/my-location', [UserCurrentLocationController::class, 'getMyLocation']);
+   
+
+
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblBooking extends Migration
+class TblUserCurrentLocation extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,10 @@ class TblBooking extends Migration
     public function up()
     {
         //
-        Schema::create('tbl_bookings', function (Blueprint $table) {
+        Schema::create('tbl_user_current_location', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('passenger_id');
-            $table->integer('driver_id');
-            $table->string('from'); //lat and long
-            $table->string('to');//lat and long
-            $table->string('fare');
-            $table->string('booking_status');
-            
+            $table->string('lat');
+            $table->string('long');
             $table->timestamps();
         });
     }

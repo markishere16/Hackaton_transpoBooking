@@ -11,6 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -84,11 +86,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      list: ['mdi-bus', 'mdi-motorbike', 'mdi-van-passenger', 'mdi-rickshaw-electric']
+      list: ['mdi-rickshaw-electric', 'mdi-motorbike', 'mdi-van-passenger', 'mdi-bus'],
+      book_data: {},
+      available_drivers: [],
+      passenger_current_location: null,
+      destination: null,
+      booked_driver_id: null,
+      from_lat: 0,
+      from_long: 0
     };
+  },
+  methods: {
+    locatorButtonPressed: function locatorButtonPressed() {
+      var _this = this;
+
+      navigator.geolocation.getCurrentPosition(function (position) {
+        _this.from_lat = position.coords.latitude;
+        _this.from_long = position.coords.longitude;
+      }, function (error) {
+        console.log('Error Getting the location');
+      });
+    },
+    getAvailableDriversNearby: function getAvailableDriversNearby() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/drivers/available').then(function (res) {
+        _this2.available_drivers = res.data;
+      });
+    },
+    BookNowHandler: function BookNowHandler(driver_id) {
+      this.book_data.from_location = '16.9339192,121.7712564';
+      this.book_data.to_location = '16.9339192,121.7712564';
+      this.book_data.driver_id = driver_id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/booking/add', this.book_data).then(function (res) {
+        alert(res.data);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getAvailableDriversNearby();
   }
 });
 
@@ -505,6 +577,13 @@ var render = function () {
   return _c(
     "div",
     [
+      _vm._v(
+        "\n\n" +
+          _vm._s(_vm.from_lat) +
+          "\n\n" +
+          _vm._s(_vm.from_long) +
+          "\n\n\n\n\n        "
+      ),
       _c(
         "v-row",
         { attrs: { justify: "center" } },
@@ -513,43 +592,45 @@ var render = function () {
             "v-col",
             { attrs: { cols: "12", md: "4" } },
             [
-              _c(
-                "v-card",
-                { staticClass: "pa-4", attrs: { color: "#2196F3" } },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "pt-2 pb-2 pl-2 pr-2" },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          "hide-details": "",
-                          rounded: "",
-                          solo: "",
-                          value: "FL. D Hall",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "pt-2 pb-2 pl-2 pr-2" },
-                    [
-                      _c("v-text-field", {
-                        attrs: {
-                          "hide-details": "",
-                          rounded: "",
-                          solo: "",
-                          value: "Cauyan, Isa",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                ]
-              ),
+              _c("v-btn", { on: { click: _vm.locatorButtonPressed } }, [
+                _vm._v("\nGet my location\n"),
+              ]),
+              _vm._v(" "),
+              _c("v-card", { attrs: { color: "#2196F3" } }, [
+                _c(
+                  "div",
+                  { staticClass: "px-2 py-2" },
+                  [
+                    _c("v-text-field", {
+                      attrs: {
+                        "hide-details": "",
+                        rounded: "",
+                        solo: "",
+                        dense: true,
+                        value: "FL. D Hall",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "px-2 py-2" },
+                  [
+                    _c("v-text-field", {
+                      attrs: {
+                        "hide-details": "",
+                        rounded: "",
+                        solo: "",
+                        dense: true,
+                        value: "Cauyan, Isa",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]),
               _vm._v(" "),
               _c(
                 "v-card",
@@ -560,6 +641,7 @@ var render = function () {
                 [
                   _c(
                     "v-list",
+                    { staticClass: "pa-0" },
                     [
                       _c(
                         "v-list-item",
@@ -579,7 +661,7 @@ var render = function () {
                                     _vm._v("mdi-map-marker-distance"),
                                   ]),
                                   _vm._v(
-                                    " Est. time 20mins\n                                "
+                                    " Est. time 20mins\n                                    "
                                   ),
                                 ],
                                 1
@@ -605,7 +687,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                    P100\n                                "
+                                      "\n                                        P100\n                                    "
                                     ),
                                   ]
                                 ),
@@ -643,7 +725,7 @@ var render = function () {
                           _c(
                             "v-btn",
                             {
-                              staticClass: "pt-8 pb-8 pl-2 pr-2",
+                              staticStyle: { height: "50px" },
                               attrs: { dark: "", color: "#2196F3" },
                             },
                             [
@@ -666,44 +748,86 @@ var render = function () {
               _c(
                 "v-container",
                 {
-                  staticClass: "pa-0",
+                  staticClass: " mx-auto",
                   staticStyle: { height: "20px !important" },
                   attrs: { fluid: "" },
                 },
                 [
                   _c(
                     "v-row",
-                    _vm._l(3, function (item) {
-                      return _c(
-                        "v-col",
-                        {
-                          key: item,
-                          staticClass: "pb-0 pt-0 pt-3",
-                          attrs: { cols: "12", md: "4" },
-                        },
-                        [
-                          _c(
+                    [
+                      _c(
+                        "v-list",
+                        _vm._l(_vm.available_drivers, function (driver, index) {
+                          return _c(
                             "v-card",
-                            {
-                              staticClass: "mx-auto pa-2",
-                              attrs: { elevation: "1", outlined: "" },
-                            },
+                            { key: index, staticClass: "my-1" },
                             [
-                              _c("div", { staticClass: "pa-1" }, [
-                                _c("span", [_vm._v("Name: Juan, Delacruz")]),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("Contact #: 09012133555")]),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c("span", [_vm._v("Type: Van")]),
-                              ]),
-                            ]
-                          ),
-                        ],
+                              _c(
+                                "v-list-item",
+                                [
+                                  _c(
+                                    "v-list-item-avatar",
+                                    [
+                                      _c("v-icon", [
+                                        _vm._v("mdi-rickshaw-electric"),
+                                      ]),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-list-item-content",
+                                    [
+                                      _c("v-list-item-title", [
+                                        _vm._v(
+                                          _vm._s(driver.last_name) +
+                                            " , " +
+                                            _vm._s(driver.first_name) +
+                                            "\n                                        "
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("v-list-item-subtitle", [
+                                        _vm._v(
+                                          "Contact #: " +
+                                            _vm._s(driver.contact_no)
+                                        ),
+                                      ]),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-list-item-action",
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: { color: "primary" },
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.BookNowHandler(
+                                                driver.id
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [_vm._v("Book")]
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          )
+                        }),
                         1
-                      )
-                    }),
+                      ),
+                    ],
                     1
                   ),
                 ],

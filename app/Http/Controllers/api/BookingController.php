@@ -4,7 +4,8 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\tbl_booking;
+use Illuminate\Support\Facades\DB;
 class BookingController extends Controller
 {
     //
@@ -35,7 +36,7 @@ class BookingController extends Controller
 
         if($findBooking) {
 
-            $findBooking->status = 'Cancelled';
+            $findBooking->booking_status = 'Cancelled';
             $findBooking->save();
 
 
@@ -46,23 +47,24 @@ class BookingController extends Controller
 
 
     public function addBooking(Request $request) {
-
+        $passenger_id = auth('sanctum')->id();
         $booking = new tbl_booking;
 
 
 
-        $from_lat = $request->from['lat'];
-        $from_long = $request->from['long'];
+        // $from_lat = $request->from['lat'];
+        // $from_long = $request->from['long'];
 
-        $to_lat = $request->to['lat'];
-        $to_long = $request->to['long'];
+        // $to_lat = $request->to['lat'];
+        // $to_long = $request->to['long'];
 
 
         $booking->driver_id = $request->driver_id;
-        $booking->passenger_id = $request->passenger_id;
-        $booking->from = $from_lat . ',' . $from_long;
-        $booking->to = $to_last . ',' . $from_long;
-        $booking->status = $request->booking_status;
+        $booking->passenger_id =  $passenger_id;
+        $booking->from = $request->from_location;
+        $booking->to = $request->to_location;
+        $booking->booking_status = 1;
+        $booking->fare = 15;
 
         $booking->save();
 
@@ -73,7 +75,7 @@ class BookingController extends Controller
     public function userBookingHistory() {
         $user = $sanctum_user;
         if($user['role'] == 'Passenger') {
-            $booking = booking::select('*')
+            $booking = tbl_booking::select('*')
             ->where('passenger_id', $user_id)
             ->get();
 
@@ -81,7 +83,7 @@ class BookingController extends Controller
         }
 
         if($user['role'] == 'Driver') {
-            $booking = booking::select('*')
+            $booking = tbl_booking::select('*')
             ->where('driver_id' , $user_id)
             ->get();
         }
