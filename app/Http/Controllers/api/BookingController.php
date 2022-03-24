@@ -132,7 +132,7 @@ class BookingController extends Controller
         $booking->to = $request->to_location;
         $booking->booking_status = 'available';
         $booking->fare = 15;
-
+        $booking->description =$request->description;
         $booking->save();
 
         return  ['message'=> 'Successfully Booked', 'data' =>$booking];
