@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\api\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,6 +28,9 @@ Route::prefix('/users')->group(function () {
     Route::get('/select/{id}', [UserController::class, 'selectedUser']);
     Route::post('/upsert', [UserController::class, 'upSert']);
     Route::delete('/delete/{id}', [UserController::class, 'deleteUser']);
+    Route::post('/add', [UserController::class, 'AddUser']);
+    Route::get('/details', [UserController::class, 'currentUser']);
+    
 });
 
 //booking
@@ -44,7 +48,7 @@ Route::prefix('/booking')->group(function () {
 //login
 
 
-Route::post('/login', [AuthController::class, 'UserLogin']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 

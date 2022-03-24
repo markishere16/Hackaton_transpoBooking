@@ -3,11 +3,27 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
 use App\Models\tbl_user_details;
-use App\Models\user;
+use App\Models\User;
 class UserController extends Controller
 {
+
+
+    public function currentUser() {
+        $userId = auth('sanctum')->id();
+        $currentUser = tbl_user_details::where('user_id', $userId)->first();
+        return $currentUser;
+
+       /*  $currentUser = auth('sanctum')->user();
+        $userDetails  = auth('sanctum')->user()->tbl_userDetails;
+        $userDetails->user_name = $currentUser->user_name;
+        $userDetails->user_type = $currentUser->user_type;
+
+        return $userDetails; */
+    }
 
 
     public function all($user_type) {
@@ -75,4 +91,31 @@ class UserController extends Controller
             }
         }
     }
+
+    public function AddUser(Request $request) {
+  
+        $New = User::create([
+            'user_name' =>  $request->username,
+            'password' => Hash::make($request->password),
+            'user_type' =>  $request->user_type,
+        ]);
+
+
+        if(!$New) {
+            return response()->json([
+                "message" => "The provided details is invalid!",
+                "success" => false
+            ]);
+        }
+
+
+        return response()->json([
+            "message" => "Successfully Added!",
+            "success" => true,
+
+        ]);
+    }
+
+
+    
 }
