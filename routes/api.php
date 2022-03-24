@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/users')->group(function () {
     Route::get('/all/{user_type}', [UserController::class, 'all']);
     Route::get('/select/{id}', [UserController::class, 'selectedUser']);
-    Route::post('/upsert', [UserController::class, 'upSert']);
+    Route::post('/upsert/{user_type}', [UserController::class, 'upSert']);
     Route::delete('/delete/{id}', [UserController::class, 'deleteUser']);
     Route::post('/add', [UserController::class, 'AddUser']);
     Route::get('/details', [UserController::class, 'currentUser']);

@@ -22,7 +22,8 @@ class TblUserDetails extends Migration
             $table->string('address')->nullable();
             $table->string('licence_image')->nullable(); 
             $table->string('contact_no')->nullable();           
-            
+            $table->tinyInteger('status')->default(0)->nullable();          
+            $table->string('vehicle_type')->nullable();           
             $table->timestamps();
         });
     }

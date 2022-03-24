@@ -72,8 +72,6 @@ class BookingController extends Controller
 
     public function userBookingHistory() {
         $user = $sanctum_user;
-
-
         if($user['role'] == 'Passenger') {
             $booking = booking::select('*')
             ->where('passenger_id', $user_id)

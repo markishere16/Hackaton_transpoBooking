@@ -14,8 +14,7 @@ const router = new Router({
                 component: () =>
                     import ( /*webpackChunkName: "mainLayout"*/ "./components/layout/mainLayout"),
                 name: "Home",
-                children: [
-                    {
+                children: [{
                         path: "",
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/home/home"),
@@ -23,12 +22,14 @@ const router = new Router({
                     },
                     {
                         path: "/vehiclelist",
-                        component: () =>import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/VehicleList/vehicleList"),
+                        component: () =>
+                            import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/VehicleList/vehicleList"),
                         name: "vehiclelist",
                     },
                     {
                         path: "/profile",
-                        component: () =>import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/profile/profile"),
+                        component: () =>
+                            import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/profile/profile"),
                         name: "profile",
                     },
                     {
@@ -37,12 +38,20 @@ const router = new Router({
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/mapComponent"),
                         name: "map"
                     },
+<<<<<<< HEAD
 
                     {
                         path: "/bookingPreview/:id",
                         component: () =>
                             import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/bookingPreview/bookingPreview"),
                         name: "bookingPreview"
+=======
+                    {
+                        path: "manage-user",
+                        component: () =>
+                            import ( /*webpackChunkName: "mainLayout"*/ "./components/pages/manage-user/manage-userComponent"),
+                        name: "manageUser"
+>>>>>>> 0cfaceb764eaa2446ad584a10bda39f2aa82d118
                     },
                 ]
             }]
@@ -50,10 +59,11 @@ const router = new Router({
 
         {
             path: "/login",
-            component: () =>import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/login/login"),
+            component: () =>
+                import ( /*webpackChunkName: "vehicleList"*/ "./components/pages/login/login"),
             name: "login",
         }
-       
+
     ]
 })
 

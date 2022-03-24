@@ -47,35 +47,57 @@ class UserController extends Controller
     }
 
 
-    public function upSert(Request $request) {
+    public function upSert( $user_type, Request $request) {
 
 
 
-        $user = tbl_user_details::find($request->user_id);
+        $user_details = tbl_user_details::find($request->user_id);
 
-        if($user) {
+        if($user_details) {
             
-            $user->first_name = $request->first_name;
-            $user->last_name = $request->last_name;
-            // $user->middle_name = $request->middle_name;
-            // $user->suffix = $request->suffix;
 
-            $user->address = $request->address;
-            $user->contact_no = $request->contact_no;
-            $user->save();
+            $user = User::find($request->user_id);
+
+            $user->user_name = $request->user_name;
+            // $user->password = $request->user_name;
+
+            $user_details->first_name = $request->first_name;
+            $user_details->last_name = $request->last_name;
+            // $user_details->middle_name = $request->middle_name;
+            // $user_details->suffix = $request->suffix;
+            $user_details->address = $request->address;
+            $user_details->contact_no = $request->contact_no;
+            $user_details->vehicle_type = $request->vehicle_type;
+            
+            $user_details->save();
         } else {
-            $user = new tbl_user_details;
-            $user->first_name = $request->first_name;
-            $user->last_name = $request->last_name;
-            // $user->middle_name = $request->middle_name;
-            // $user->suffix = $request->suffix;
-            $user->address = $request->address;
-            $user->contact_no = $request->contact_no;
-            $user->save();
+
+
+            $New = User::create([
+                'user_name' =>  $request->user_name,
+                'password' => Hash::make($request->password),
+                'user_type' =>  $user_type,
+            ]);
+
+            
+            $user_details = new tbl_user_details;
+
+
+
+
+            $user_details->user_id = $New->id;
+            $user_details->first_name = $request->first_name;
+            $user_details->last_name = $request->last_name;
+            // $user_details->middle_name = $request->middle_name;
+            // $user_details->suffix = $request->suffix;
+            $user_details->address = $request->address;
+            $user_details->contact_no = $request->contact_no;
+            $user_details->vehicle_type = $request->vehicle_type;
+            $user_details->save();
         }
 
 
-        return ['message'=>'Successfully Saved', 'data'=>$user];
+        return ['message'=>'Successfully Saved', 'data'=>$user_details];
 
     }
 
