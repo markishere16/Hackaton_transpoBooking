@@ -352,6 +352,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -364,6 +377,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/booking/my-history').then(function (res) {
         _this.myhistory = res.data;
+      });
+    },
+    clearHistory: function clearHistory() {
+      axios.post('api/booking/clear_all').then(function (res) {
+        console.log(res.data);
       });
     }
   },
@@ -2625,9 +2643,8 @@ var render = function () {
     [
       _c(
         "v-row",
-        { attrs: { justify: "center" } },
         [
-          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+          _c("v-col", { attrs: { cols: "6", xs: "4" } }, [
             _c(
               "div",
               { staticClass: "d-flex" },
@@ -2642,6 +2659,32 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
+          _c(
+            "v-col",
+            [
+              _c(
+                "v-btn",
+                {
+                  attrs: { dense: true },
+                  on: {
+                    click: function ($event) {
+                      return _vm.clearHistory()
+                    },
+                  },
+                },
+                [_vm._v("\n                Clear History\n            ")]
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { justify: "center" } },
+        [
           _c(
             "v-col",
             { attrs: { cols: "12", md: "7" } },

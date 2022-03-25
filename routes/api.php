@@ -53,6 +53,7 @@ Route::prefix('/booking')->group(function () {
     Route::put('/accept_booking/{id}', [BookingController::class, 'AcceptBooking']);
     Route::put('/cancel_booking/{id}', [BookingController::class, 'CancelAcceptedBooking']);
     
+    Route::post('/history/clear_all', [BookingController::class, 'clearAllHistoryBooking']);
 });
 
 
@@ -62,6 +63,10 @@ Route::prefix('/drivers')->group(function () {
     Route::get('/details', [DriverController::class, 'Details']);
    
 });
+
+
+
+
 
 
 Route::get('/my-location', [UserCurrentLocationController::class, 'getMyLocation']);
@@ -75,6 +80,8 @@ Route::get('/my-location', [UserCurrentLocationController::class, 'getMyLocation
 
 
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/sign-up', [UserController::class, 'signup']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 

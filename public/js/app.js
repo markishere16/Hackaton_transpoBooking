@@ -2434,6 +2434,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() | vehicleList */ "vehicleList").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/login/login */ "./resources/js/components/pages/login/login.vue"));
     },
     name: "login"
+  }, {
+    path: "/sign-up",
+    component: function component() {
+      return __webpack_require__.e(/*! import() | vehicleList */ "vehicleList").then(__webpack_require__.bind(__webpack_require__, /*! ./components/pages/register/register */ "./resources/js/components/pages/register/register.vue"));
+    },
+    name: "signup"
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
