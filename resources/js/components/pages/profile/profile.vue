@@ -46,6 +46,7 @@
             </v-col> -->
             
         </v-row>
+        
 
         <input
         ref="fileInput"
@@ -70,10 +71,13 @@ export default {
                 'mdi-motorbike',
                 'mdi-van-passenger',
                 'mdi-rickshaw-electric'
-            ]
+            ],
+            isloaded: false
         }
     },
-    computed: mapGetters(["get_CurrentUser"]),
+    computed: {
+        ...mapGetters(["get_CurrentUser"])
+    },
     methods:{
         ...mapActions(['fetchCurrentUser']),
         logout() {
@@ -104,8 +108,8 @@ export default {
             
             },
     },
-   /*  mounted(){
-        this.fetchCurrentUser();
-    } */
+    mounted(){
+        //this.fetchCurrentUser();
+    }
 }
 </script>

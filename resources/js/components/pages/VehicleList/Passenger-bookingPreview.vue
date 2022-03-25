@@ -60,10 +60,21 @@
             </v-col>
 
             <v-col cols="12" md="7">
-                <v-btn class="pt-6 pb-6" v-if="isBooked == false" @click="BookNowHandler()" rounded color="primary" block>Book Now</v-btn>
+               <!--  <v-btn class="pt-6 pb-6" v-if="isBooked == false" @click="BookNowHandler()" rounded color="primary" block>Book Now</v-btn>
+            
 
+                <v-btn class="pt-6 pb-6" v-if="isBooked == true" rounded color="primary" block>Cancel Booking</v-btn> -->
 
-            <v-btn class="pt-6 pb-6" v-if="isBooked == true" rounded color="primary" block>Cancel Booking</v-btn>
+            <div class="d-flex">
+
+                     <v-btn class="pt-6 pb-6" v-if="isBooked == false" @click="BookNowHandler()" rounded color="primary" style="width:80%">Book Now</v-btn>
+                     <v-btn class="pt-6 pb-6" v-if="isBooked == true" rounded color="primary" style="width:80%">Cancel Booking</v-btn>
+                        <!-- <v-btn v-else-if="isAccepted == true" class="pt-6 pb-6" @click="CancelBooking()"  dark rounded color="green" style="width:80%">
+                            <v-icon left>mdi-check</v-icon>
+                            Booking Accepted
+                        </v-btn> -->
+                    <v-btn class="pt-6 pb-6 ml-2"   rounded color="primary" ><v-icon>mdi-message</v-icon></v-btn>
+                 </div>
             </v-col>
         </v-row>
         <!--  <div>

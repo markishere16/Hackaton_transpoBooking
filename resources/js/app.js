@@ -10,6 +10,11 @@
  import vuetify from './plugin/vuetify'
  import router from './router'
  import store from "./store/store";
+
+
+ import VueSplash from 'vue-splash';
+ 
+Vue.use(VueSplash);
  
 
  // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))

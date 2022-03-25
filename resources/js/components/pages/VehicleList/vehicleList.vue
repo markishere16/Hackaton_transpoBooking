@@ -95,7 +95,7 @@
             <passengerBooking v-on:isBooked="getAvailableDriversNearby()" v-else v-on:close="isBooking = false" :BookingData="BookingData"></passengerBooking>
         </div>
         <div v-if="isBooked && isloaded">
-            <bookingDetailsPreview v-on:cancelBooking="getAvailableDriversNearby(), isBooked = false" :details="available_drivers"></bookingDetailsPreview>
+            <bookingDetailsPreview :isAccepted="isAccepted" v-on:cancelBooking="getAvailableDriversNearby(), isBooked = false" :details="available_drivers"></bookingDetailsPreview>
         </div>
     </div>
 </template>
@@ -129,7 +129,8 @@ import axios from 'axios'
                 isBooking: false,
                 BookingData: {},
                 isBooked: null,
-                isloaded: false
+                isloaded: false,
+                isAccepted: null
             }
 
         },
@@ -150,6 +151,7 @@ import axios from 'axios'
             getAvailableDriversNearby() {
                 axios.get('/api/drivers/available')
                     .then((res) => {
+                        this.isAccepted = res.data.isAccepted;
                         this.isBooked = res.data.isBooked
                         this.available_drivers = res.data.data;
                         //console.log(res.data.data);

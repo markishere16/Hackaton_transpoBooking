@@ -21,8 +21,12 @@ class DriverController extends Controller
 
         if($checkBooking){
             
+            $isAccepted;
+            if($checkBooking->booking_status == 'available')$isAccepted = false;
+            elseif($checkBooking->booking_status == 'booked')$isAccepted = true;
             return [
-                'isBooked'=> true, 
+                'isBooked'=> true,
+                'isAccepted'=> $isAccepted,
                 'data'=>  $checkBooking,
             ];
            
@@ -34,7 +38,7 @@ class DriverController extends Controller
                 ->get();
 
         //return $drivers;
-        return ['isBooked'=> false, 'data'=>  $drivers];
+        return ['isBooked'=> false, 'isAccepted'=> false, 'data'=>  $drivers];
 
     }
 

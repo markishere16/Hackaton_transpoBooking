@@ -18,16 +18,19 @@
  -->
 
 <div>
+   
     <router-view></router-view>
 </div>
 </template>
 <script>
 import navigation from './layout/navigation'
 import bottomnavigation from './layout/bottom_navigation'
+
 export default {
     components:{
         navigation,
         bottomnavigation
-    }
+    },
+   
 }
 </script>

@@ -1,6 +1,13 @@
 <template>
    <div>
-        <v-app style="background-color:white" >
+        <vue-splash
+    :show="!isloaded"
+    :logo="logo"
+    color="#FF9800"
+    :size="250"
+    :fixed="true"
+  />
+        <v-app v-if="isloaded" style="background-color:white" >
             <v-main>
                 <v-container fluid fill-height>
                    <v-row align="center" justify="center">
@@ -26,16 +33,23 @@
     </div>
 </template>
 <script>
+import YourLogo from "../../../../../public/images/logoHackaton.png";
 export default {
     data(){
         return{
-            logo: '../../images/transpologo2.jpg',
+            logo: '../../images/logoHackaton.png',
             form:{
                 username: '',
                 password:''
             },
-            loading: false
+            loading: false,
+            isloaded: false
         }
+    },
+    computed: {
+        logo() {
+            return YourLogo;
+        },
     },
     methods:{
         async login(){
@@ -53,6 +67,9 @@ export default {
                 this.loading = false;
             })
         }
+    },
+    mounted(){
+         setTimeout(() => {this.isloaded = true}, 2000);
     }
 }
 </script>

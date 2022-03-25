@@ -87,6 +87,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['BookingData'],
   data: function data() {
@@ -191,8 +202,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['details'],
+  props: ['details', 'isAccepted'],
   data: function data() {
     return {};
   },
@@ -347,7 +370,8 @@ __webpack_require__.r(__webpack_exports__);
       isBooking: false,
       BookingData: {},
       isBooked: null,
-      isloaded: false
+      isloaded: false,
+      isAccepted: null
     };
   },
   methods: {
@@ -365,6 +389,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/drivers/available').then(function (res) {
+        _this2.isAccepted = res.data.isAccepted;
         _this2.isBooked = res.data.isBooked;
         _this2.available_drivers = res.data.data; //console.log(res.data.data);
 
@@ -407,6 +432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _public_images_logoHackaton_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../public/images/logoHackaton.png */ "./public/images/logoHackaton.png");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -440,16 +466,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      logo: '../../images/transpologo2.jpg',
+      logo: '../../images/logoHackaton.png',
       form: {
         username: '',
         password: ''
       },
-      loading: false
+      loading: false,
+      isloaded: false
     };
+  },
+  computed: {
+    logo: function logo() {
+      return _public_images_logoHackaton_png__WEBPACK_IMPORTED_MODULE_1__["default"];
+    }
   },
   methods: {
     login: function login() {
@@ -483,6 +523,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    setTimeout(function () {
+      _this2.isloaded = true;
+    }, 2000);
   }
 });
 
@@ -564,14 +611,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      list: ['mdi-bus', 'mdi-motorbike', 'mdi-van-passenger', 'mdi-rickshaw-electric']
+      list: ['mdi-bus', 'mdi-motorbike', 'mdi-van-passenger', 'mdi-rickshaw-electric'],
+      isloaded: false
     };
   },
-  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["get_CurrentUser"]),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["get_CurrentUser"])),
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['fetchCurrentUser'])), {}, {
     logout: function logout() {
       var _this = this;
@@ -595,12 +644,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.imageFile = element.target.files[0];
       this.get_CurrentUser.profile = URL.createObjectURL(this.imageFile);
     }
-  })
-  /*  mounted(){
-       this.fetchCurrentUser();
-   } */
-
+  }),
+  mounted: function mounted() {//this.fetchCurrentUser();
+  }
 });
+
+/***/ }),
+
+/***/ "./public/images/logoHackaton.png":
+/*!****************************************!*\
+  !*** ./public/images/logoHackaton.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logoHackaton.png?8de93addfe78b9143227a89617e78487");
 
 /***/ }),
 
@@ -1103,39 +1164,53 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { cols: "12", md: "7" } },
-            [
-              _vm.isBooked == false
-                ? _c(
-                    "v-btn",
-                    {
-                      staticClass: "pt-6 pb-6",
-                      attrs: { rounded: "", color: "primary", block: "" },
-                      on: {
-                        click: function ($event) {
-                          return _vm.BookNowHandler()
+          _c("v-col", { attrs: { cols: "12", md: "7" } }, [
+            _c(
+              "div",
+              { staticClass: "d-flex" },
+              [
+                _vm.isBooked == false
+                  ? _c(
+                      "v-btn",
+                      {
+                        staticClass: "pt-6 pb-6",
+                        staticStyle: { width: "80%" },
+                        attrs: { rounded: "", color: "primary" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.BookNowHandler()
+                          },
                         },
                       },
-                    },
-                    [_vm._v("Book Now")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.isBooked == true
-                ? _c(
-                    "v-btn",
-                    {
-                      staticClass: "pt-6 pb-6",
-                      attrs: { rounded: "", color: "primary", block: "" },
-                    },
-                    [_vm._v("Cancel Booking")]
-                  )
-                : _vm._e(),
-            ],
-            1
-          ),
+                      [_vm._v("Book Now")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isBooked == true
+                  ? _c(
+                      "v-btn",
+                      {
+                        staticClass: "pt-6 pb-6",
+                        staticStyle: { width: "80%" },
+                        attrs: { rounded: "", color: "primary" },
+                      },
+                      [_vm._v("Cancel Booking")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    staticClass: "pt-6 pb-6 ml-2",
+                    attrs: { rounded: "", color: "primary" },
+                  },
+                  [_c("v-icon", [_vm._v("mdi-message")])],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
         ],
         1
       ),
@@ -1258,10 +1333,10 @@ var render = function () {
                   _vm._v(" "),
                   _c("v-textarea", {
                     attrs: {
+                      "hide-details": "",
                       outlined: "",
                       name: "input-7-4",
                       label: "Description",
-                      value: "",
                     },
                     model: {
                       value: _vm.details.description,
@@ -1280,21 +1355,84 @@ var render = function () {
           _vm._v(" "),
           _c(
             "v-col",
-            { attrs: { cols: "12", md: "7" } },
+            { staticClass: "text-center", attrs: { cols: "12", md: "7" } },
             [
-              _c(
-                "v-btn",
-                {
-                  staticClass: "pt-6 pb-6",
-                  attrs: { dark: "", rounded: "", color: "red", block: "" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.CancelBooking()
+              _vm.isAccepted == false
+                ? _c(
+                    "v-btn",
+                    {
+                      staticClass: "pt-6 pb-6",
+                      attrs: { dark: "", rounded: "", color: "red", block: "" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.CancelBooking()
+                        },
+                      },
                     },
-                  },
-                },
-                [_vm._v("Cancel Booking")]
+                    [_vm._v("Cancel Booking")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-flex" },
+                [
+                  _vm.isAccepted == false
+                    ? _c(
+                        "v-btn",
+                        {
+                          staticClass: "pt-6 pb-6",
+                          staticStyle: { width: "80%" },
+                          attrs: { dark: "", rounded: "", color: "red" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.CancelBooking()
+                            },
+                          },
+                        },
+                        [_vm._v("Cancel Booking")]
+                      )
+                    : _vm.isAccepted == true
+                    ? _c(
+                        "v-btn",
+                        {
+                          staticClass: "pt-6 pb-6",
+                          staticStyle: { width: "80%" },
+                          attrs: { dark: "", rounded: "", color: "green" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.CancelBooking()
+                            },
+                          },
+                        },
+                        [
+                          _c("v-icon", { attrs: { left: "" } }, [
+                            _vm._v("mdi-check"),
+                          ]),
+                          _vm._v(
+                            "\n                         Booking Accepted\n                     "
+                          ),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "pt-6 pb-6 ml-2",
+                      attrs: { rounded: "", color: "primary" },
+                    },
+                    [_c("v-icon", [_vm._v("mdi-message")])],
+                    1
+                  ),
+                ],
+                1
               ),
+              _vm._v(" "),
+              _vm.isAccepted == true
+                ? _c("small", [_vm._v("Wait for your transport to arrive. ")])
+                : _vm._e(),
             ],
             1
           ),
@@ -1634,7 +1772,10 @@ var render = function () {
           "div",
           [
             _c("bookingDetailsPreview", {
-              attrs: { details: _vm.available_drivers },
+              attrs: {
+                isAccepted: _vm.isAccepted,
+                details: _vm.available_drivers,
+              },
               on: {
                 cancelBooking: function ($event) {
                   _vm.getAvailableDriversNearby(), (_vm.isBooked = false)
@@ -1672,113 +1813,127 @@ var render = function () {
   return _c(
     "div",
     [
-      _c(
-        "v-app",
-        { staticStyle: { "background-color": "white" } },
-        [
-          _c(
-            "v-main",
+      _c("vue-splash", {
+        attrs: {
+          show: !_vm.isloaded,
+          logo: _vm.logo,
+          color: "#FF9800",
+          size: 250,
+          fixed: true,
+        },
+      }),
+      _vm._v(" "),
+      _vm.isloaded
+        ? _c(
+            "v-app",
+            { staticStyle: { "background-color": "white" } },
             [
               _c(
-                "v-container",
-                { attrs: { fluid: "", "fill-height": "" } },
+                "v-main",
                 [
                   _c(
-                    "v-row",
-                    { attrs: { align: "center", justify: "center" } },
+                    "v-container",
+                    { attrs: { fluid: "", "fill-height": "" } },
                     [
                       _c(
-                        "v-col",
-                        {
-                          staticClass: "text-center",
-                          attrs: { cols: "12", md: "7" },
-                        },
+                        "v-row",
+                        { attrs: { align: "center", justify: "center" } },
                         [
                           _c(
-                            "div",
-                            { staticClass: "d-flex justify-center" },
+                            "v-col",
+                            {
+                              staticClass: "text-center",
+                              attrs: { cols: "12", md: "7" },
+                            },
                             [
-                              _c("v-img", {
+                              _c(
+                                "div",
+                                { staticClass: "d-flex justify-center" },
+                                [
+                                  _c("v-img", {
+                                    attrs: {
+                                      width: "100",
+                                      alt: "logo",
+                                      src: _vm.logo,
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", md: "7" } },
+                            [
+                              _c("v-text-field", {
                                 attrs: {
-                                  width: "100",
-                                  alt: "logo",
-                                  src: _vm.logo,
+                                  type: "text",
+                                  "hide-details": "",
+                                  rounded: "",
+                                  outlined: "",
+                                  label: "Username",
+                                },
+                                model: {
+                                  value: _vm.form.username,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.form, "username", $$v)
+                                  },
+                                  expression: "form.username",
                                 },
                               }),
                             ],
                             1
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", md: "7" } },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              type: "text",
-                              "hide-details": "",
-                              rounded: "",
-                              outlined: "",
-                              label: "Username",
-                            },
-                            model: {
-                              value: _vm.form.username,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "username", $$v)
-                              },
-                              expression: "form.username",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", md: "7" } },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              type: "password",
-                              "hide-details": "",
-                              rounded: "",
-                              outlined: "",
-                              label: "Password",
-                            },
-                            model: {
-                              value: _vm.form.password,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.form, "password", $$v)
-                              },
-                              expression: "form.password",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", md: "7" } },
-                        [
+                          _vm._v(" "),
                           _c(
-                            "v-btn",
-                            {
-                              attrs: {
-                                loading: _vm.loading,
-                                rounded: "",
-                                block: "",
-                                color: "primary",
-                              },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.login()
+                            "v-col",
+                            { attrs: { cols: "12", md: "7" } },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  type: "password",
+                                  "hide-details": "",
+                                  rounded: "",
+                                  outlined: "",
+                                  label: "Password",
                                 },
-                              },
-                            },
-                            [_vm._v("Login")]
+                                model: {
+                                  value: _vm.form.password,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.form, "password", $$v)
+                                  },
+                                  expression: "form.password",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", md: "7" } },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    loading: _vm.loading,
+                                    rounded: "",
+                                    block: "",
+                                    color: "primary",
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.login()
+                                    },
+                                  },
+                                },
+                                [_vm._v("Login")]
+                              ),
+                            ],
+                            1
                           ),
                         ],
                         1
@@ -1791,10 +1946,8 @@ var render = function () {
               ),
             ],
             1
-          ),
-        ],
-        1
-      ),
+          )
+        : _vm._e(),
     ],
     1
   )

@@ -52,15 +52,27 @@
 
                 <div>
                     <v-divider class="mb-2"></v-divider>
-                    <v-textarea outlined name="input-7-4" v-model="details.description" label="Description"
-                        value="">
+                    <v-textarea hide-details outlined name="input-7-4" v-model="details.description" label="Description">
                     </v-textarea>
                 </div>
 
             </v-col>
 
-            <v-col cols="12" md="7">
-                <v-btn class="pt-6 pb-6" @click="CancelBooking()"  dark rounded color="red" block>Cancel Booking</v-btn>
+            <v-col class="text-center" cols="12" md="7">
+                <v-btn v-if="isAccepted == false" class="pt-6 pb-6" @click="CancelBooking()"  dark rounded color="red" block>Cancel Booking</v-btn>
+
+                 
+
+                 <div class="d-flex">
+                     <v-btn v-if="isAccepted == false" class="pt-6 pb-6" @click="CancelBooking()"  dark rounded color="red" style="width:80%">Cancel Booking</v-btn>
+                        <v-btn v-else-if="isAccepted == true" class="pt-6 pb-6" @click="CancelBooking()"  dark rounded color="green" style="width:80%">
+                            <v-icon left>mdi-check</v-icon>
+                            Booking Accepted
+                        </v-btn>
+                    <v-btn class="pt-6 pb-6 ml-2"   rounded color="primary" ><v-icon>mdi-message</v-icon></v-btn>
+                     </div>
+
+                     <small v-if="isAccepted == true">Wait for your transport to arrive. </small>
             </v-col>
         </v-row>
     
@@ -68,7 +80,7 @@
 </template>
 <script>
 export default {
-    props:['details'],
+    props:['details','isAccepted'],
     data(){
         return{
 
