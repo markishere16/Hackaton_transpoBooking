@@ -112,15 +112,29 @@ class UserController extends Controller
         }
     }
 
-    public function AddUser(Request $request) {
+    public function signup(Request $request) {
   
+
+        $user_details = new tbl_user_details;
+
+
+
+
+
         $New = User::create([
             'user_name' =>  $request->username,
             'password' => Hash::make($request->password),
-            'user_type' =>  $request->user_type,
+            'user_type' => 'passenger',
         ]);
 
 
+
+        $user_details->user_id = $New->id;
+        $user_details->first_name = $request->first_name;
+        $user_details->last_name = $request->last_name;
+        $user_details->contact_no = $request->contact_no;
+
+        $user_details->save();
         if(!$New) {
             return response()->json([
                 "message" => "The provided details is invalid!",
